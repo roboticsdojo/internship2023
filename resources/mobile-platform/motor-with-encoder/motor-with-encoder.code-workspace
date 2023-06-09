@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "motor-with-encoder",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
