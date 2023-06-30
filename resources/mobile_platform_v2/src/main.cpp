@@ -5,6 +5,7 @@
 #include "Preferences.h"
 #include <Encoder.h>
 #include <Wire.h>
+# include "pickPlace.h"
 
 MobilePlatform platform;
 
@@ -180,6 +181,7 @@ void loop()
     customDelay(1000);
     rotateToAngle(90, 10) ;
     
+    getPinValue();
     customDelay(2000); // wait for the trailer to be picked
     state = PICK_ENGINE;
     break;
@@ -215,7 +217,7 @@ void loop()
     customDelay(100);
 
     followLine(50); // follow line. Stop at obstacle_distance <= 50 cm
-
+    getPinValue();
     customDelay(2000); // wait to pick engine
     state = PICK_WHEELS;
     // state = STOP;
