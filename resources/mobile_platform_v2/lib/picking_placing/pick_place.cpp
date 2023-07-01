@@ -21,14 +21,14 @@ int done = 0;
 
 
 void stopAtObjectLocation();
-void getPinValue();
+//void getPinValue();
 
 void setup() {
+  Serial.begin(9600);
   pinMode(pickPin, OUTPUT);
   pinMode(placePin,  OUTPUT);
   pinMode(continuePin, INPUT);
   pinMode(debugPin, OUTPUT);
-  Serial.begin(9600);
 
 }
 
@@ -63,8 +63,6 @@ void loop() {
   }
 }
 
-
-
 void stopAtObjectLocation(){
 
   // Pick or Place
@@ -73,4 +71,9 @@ void stopAtObjectLocation(){
   digitalWrite(pickPin, HIGH);
   digitalWrite(debugPin, HIGH);
   Serial.println("Send command :> Picking up object");
+}
+void stopAndPlace(){
+  digitalWrite(placePin, HIGH);
+  digitalWrite(debugPin, HIGH);
+  Serial.println("Placing object");
 }

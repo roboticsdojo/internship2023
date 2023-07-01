@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "Preferences.h"
 #include "Gyro.h"
+#include "pickPlace.h"
 
 class MobilePlatform {
   private:

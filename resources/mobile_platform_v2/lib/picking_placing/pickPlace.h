@@ -5,6 +5,7 @@
 
 void stopAtObjectLocation();
 void getPinValue();
+void stopAndPlace();
 
 
 

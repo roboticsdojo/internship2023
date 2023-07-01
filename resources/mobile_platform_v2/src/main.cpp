@@ -180,8 +180,8 @@ void loop()
     }
     customDelay(1000);
     rotateToAngle(90, 10) ;
-    
-    getPinValue();
+    //getPinValue();
+    stopAtObjectLocation();
     customDelay(2000); // wait for the trailer to be picked
     state = PICK_ENGINE;
     break;
@@ -217,7 +217,8 @@ void loop()
     customDelay(100);
 
     followLine(50); // follow line. Stop at obstacle_distance <= 50 cm
-    getPinValue();
+    // getPinValue();
+    stopAtObjectLocation();
     customDelay(2000); // wait to pick engine
     state = PICK_WHEELS;
     // state = STOP;
@@ -250,7 +251,8 @@ void loop()
     customDelay(1000);
     rotateToAngle(-90, 10);
     customDelay(100);
-    
+    // getPinValue();
+    stopAtObjectLocation();
     customDelay(2000); // Wait to pick wheels
     state = PICK_CABIN;
     // state = STOP;
@@ -291,7 +293,8 @@ void loop()
     }
     customDelay(100);
     followLine(50);
-
+    // getPinValue();
+    stopAtObjectLocation();
     customDelay(2000);// wait to pick cabin
     
     state = BACK_TO_CHASIS;
@@ -331,7 +334,8 @@ void loop()
     }
     customDelay(100);
     followLine(50);
-    
+    // getPinValue();
+    stopAndPlace();
     customDelay(2000); // wait to place
     state = BACK_TO_START;
   
