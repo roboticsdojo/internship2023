@@ -15,8 +15,13 @@ X_AXIS_CM_TO_PIXEL = 0.03625
 Y_AXIS_CM_TO_PIXEL = 0.03168
 
 X_AXIS_MIDPOINT_CAMERA = (FRAME_WIDTH // 2) * X_AXIS_CM_TO_PIXEL
+Y_AXIS_MIDPOINT_CAMERA = (FRAME_HEIGHT // 2) * Y_AXIS_CM_TO_PIXEL
+
 # Similar as the camera is mounted at the center of robot arm i.e. origin of arm's coordinate system
-X_AXIS_MIDPOINT_WORLD = X_AXIS_MIDPOINT_CAMERA
+# This is only true for world Y and Z axis
+Y_AXIS_MIDPOINT_WORLD = X_AXIS_MIDPOINT_CAMERA
+Z_AXIS_MIDPOINT_WORLD = Y_AXIS_MIDPOINT_CAMERA
+
 
 coordinate_list = [
     {
@@ -75,10 +80,12 @@ def resolve_world_coordinates(worldCoordinates: list):
     for coordinate in worldCoordinates:
 
         # distance_from_midpoint = X_AXIS_MIDPOINT_CAMERA - world_coordinate
-        # y_distance = z_distance = frame_height_cm - object_height_cm
+        # method-1 (Simple Implementation): y_distance = z_distance = frame_height_cm - object_height_cm
+        # method-2 (use camera mid-y as z-axis center): y_distance = Y_AXIS_MIDPOINT_CAMERA - world_coordinate
 
         x = int(X_AXIS_MIDPOINT_CAMERA - coordinate[0])
-        y = int((FRAME_HEIGHT * Y_AXIS_CM_TO_PIXEL) - coordinate[1])
+        # y = int((FRAME_HEIGHT * Y_AXIS_CM_TO_PIXEL) - coordinate[1])
+        y = int(Y_AXIS_MIDPOINT_CAMERA - coordinate[1])
         world_coordinates.append((x, y))
 
     return world_coordinates
@@ -89,8 +96,6 @@ def get_world_coordinates_3d(worldCoordinates: list):
     depth = 0
 
     for coordinate in worldCoordinates:
-
-        # distance_from_midpoint = X_AXIS_MIDPOINT_CAMERA - world_coordinate
 
         x = depth
         y = coordinate[0]
@@ -132,6 +137,18 @@ def take_snapshot():
 
 # take_snapshot()
 
+
+print(f"\nX_AXIS_CM_TO_PIXEL: {X_AXIS_CM_TO_PIXEL}")
+print(f"Y_AXIS_CM_TO_PIXEL: {Y_AXIS_CM_TO_PIXEL}")
+print(
+    f"FRAME_WIDTH: {FRAME_WIDTH} -> {int(FRAME_WIDTH * X_AXIS_CM_TO_PIXEL)} cm")
+print(
+    f"FRAME_HEIGHT: {FRAME_HEIGHT} -> {int(FRAME_HEIGHT * Y_AXIS_CM_TO_PIXEL)} cm")
+print(f"X_AXIS_MIDPOINT_CAMERA: {int(X_AXIS_MIDPOINT_CAMERA)}")
+print(f"Y_AXIS_MIDPOINT_CAMERA: {int(Y_AXIS_MIDPOINT_CAMERA)}")
+
+print("\n------\n")
+
 centroids = get_centroids(coordinate_list)
 print(f"centroids: {centroids}")
 
@@ -144,6 +161,8 @@ print(f"resolved_world_coordinates: {resolved_world_coordinates}")
 world_coordinates_3d = get_world_coordinates_3d(resolved_world_coordinates)
 print(f"3D_world_coordinates: {world_coordinates_3d}")
 
+
+print("\n")
 # validation_image = cv2.imread('validation-image.jpg')
 # cv2.imshow('validation_image', validation_image)
 # cv2.waitKey(0)
