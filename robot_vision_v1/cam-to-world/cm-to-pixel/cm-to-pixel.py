@@ -247,7 +247,7 @@ def take_snapshot():
     cv2.destroyAllWindows()
 
 
-# take_snapshot()
+take_snapshot()
 
 
 print(f"\nX_AXIS_CM_TO_PIXEL: {X_AXIS_CM_TO_PIXEL}")
