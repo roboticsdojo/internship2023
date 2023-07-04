@@ -31,4 +31,10 @@
 #define LEFT_ENCODER_A_PIN 3//20 //18 //2 (2 and 20 for left)
 #define LEFT_ENCODER_B_PIN 2 //19 //3 (18 and 19 for right)
 
+// Communication
+#define PICKPIN  6
+#define DEBUGPIN  51
+// #define PLACEPIN  9
+#define CONTINUEPIN 50
+
 #endif //PREFERENCES_H
