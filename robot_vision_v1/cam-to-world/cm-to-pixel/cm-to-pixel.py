@@ -191,7 +191,8 @@ def resolve_world_coordinates(worldCoordinates: list):
 
         x = int(X_AXIS_MIDPOINT_CAMERA - coordinate[0])
         # y = int((FRAME_HEIGHT * Y_AXIS_CM_TO_PIXEL) - coordinate[1])
-        y = int(Y_AXIS_MIDPOINT_CAMERA - coordinate[1])
+        # y = int(Y_AXIS_MIDPOINT_CAMERA - coordinate[1])
+        y = int((FRAME_HEIGHT * Y_AXIS_CM_TO_PIXEL) - coordinate[1])
         world_coordinates.append((x, y))
 
     return world_coordinates
