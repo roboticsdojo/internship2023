@@ -13,6 +13,7 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
 
 X_AXIS_CM_TO_PIXEL = 0.03625
 Y_AXIS_CM_TO_PIXEL = 0.03168
+Y_AXIS_SCALE_FACTOR = 1.21
 
 X_AXIS_MIDPOINT_CAMERA = (FRAME_WIDTH // 2) * X_AXIS_CM_TO_PIXEL
 Y_AXIS_MIDPOINT_CAMERA = (FRAME_HEIGHT // 2) * Y_AXIS_CM_TO_PIXEL
@@ -23,6 +24,7 @@ Y_AXIS_MIDPOINT_WORLD = X_AXIS_MIDPOINT_CAMERA
 Z_AXIS_MIDPOINT_WORLD = Y_AXIS_MIDPOINT_CAMERA
 
 
+# validation-images
 coordinate_list_0 = [
     {
         "x1": 153.46231079101562,
@@ -38,8 +40,6 @@ coordinate_list_0 = [
     }
 ]
 
-
-# validation-images
 coordinate_list_1 = [
     {
         "x1": 101.38385009765625,
@@ -172,7 +172,9 @@ def get_world_coordinates(cameraCoordinates: list):
     for coordinate in cameraCoordinates:
 
         x = float(f"{(coordinate[0] * X_AXIS_CM_TO_PIXEL):0,.3f}")
-        y = float(f"{coordinate[1] * Y_AXIS_CM_TO_PIXEL:0,.3f}")
+        # Use scaling factor to correct Y axis conversion.
+        y = float(
+            f"{(coordinate[1] * Y_AXIS_CM_TO_PIXEL * Y_AXIS_SCALE_FACTOR):0,.3f}")
         world_coordinates.append((x, y))
 
     return world_coordinates
@@ -201,8 +203,8 @@ def get_world_coordinates_3d(worldCoordinates: list):
 
     for coordinate in worldCoordinates:
 
-        x = depth
-        y = coordinate[0]
+        x = coordinate[0]
+        y = depth
         z = coordinate[1]
         world_coordinates.append((x, y, z))
 
@@ -253,7 +255,7 @@ print(f"Y_AXIS_MIDPOINT_CAMERA: {int(Y_AXIS_MIDPOINT_CAMERA)}")
 
 print("\n------\n")
 
-centroids = get_centroids(coordinate_list_0)
+centroids = get_centroids(coordinate_list_1)
 print(f"centroids: {centroids}")
 
 world_coordinates = get_world_coordinates(centroids)
