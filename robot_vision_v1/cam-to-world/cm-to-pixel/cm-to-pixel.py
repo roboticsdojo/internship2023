@@ -193,6 +193,11 @@ def resolve_world_coordinates(worldCoordinates: list):
         # y = int((FRAME_HEIGHT * Y_AXIS_CM_TO_PIXEL) - coordinate[1])
         # y = int(Y_AXIS_MIDPOINT_CAMERA - coordinate[1])
         y = int((FRAME_HEIGHT * Y_AXIS_CM_TO_PIXEL) - coordinate[1])
+
+        #! validation-img-5 failed: Lack of depth-information results in negative values!
+        if y < 0:
+            y = 0
+
         world_coordinates.append((x, y))
 
     return world_coordinates
@@ -256,7 +261,7 @@ print(f"Y_AXIS_MIDPOINT_CAMERA: {int(Y_AXIS_MIDPOINT_CAMERA)}")
 
 print("\n------\n")
 
-centroids = get_centroids(coordinate_list_1)
+centroids = get_centroids(coordinate_list_5)
 print(f"centroids: {centroids}")
 
 world_coordinates = get_world_coordinates(centroids)
@@ -270,6 +275,6 @@ print(f"3D_world_coordinates: {world_coordinates_3d}")
 
 
 print("\n")
-validation_image = cv2.imread('./validation-images/validation-img-1.jpg')
+validation_image = cv2.imread('./validation-images/validation-img-5.jpg')
 cv2.imshow('validation_image', validation_image)
 cv2.waitKey(0)
