@@ -30,6 +30,10 @@ void MobilePlatform::configurePins() {
   pinMode(LEFT_MOTOR_PIN1, OUTPUT);
   pinMode(LEFT_MOTOR_PIN2, OUTPUT);
 
+  pinMode(PICKPIN, OUTPUT);
+  pinMode(DEBUGPIN, OUTPUT);
+  pinMode(CONTINUEPIN, INPUT_PULLUP);
+
   // pinMode(TRIGPIN, OUTPUT);
   // pinMode(ECHOPIN, INPUT);  
 }
