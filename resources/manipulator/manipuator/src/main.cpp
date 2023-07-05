@@ -41,6 +41,9 @@ void rampToAngle(double s1, double s2, double s3, double s4, unsigned long t, bo
 void moveToAngle(double s1, double s2, double s3, double s4);
 void calculateInverseKinematics(int x_e, int y_e, int z_e, int phi_e);
 
+// Communication stuff
+String getValue(String data, char separator, int index);
+
 void setup()
 {
   Serial.begin(9600);
@@ -56,97 +59,74 @@ void setup()
   j4Servo.write(90);
   rampToAngle(90, 90, 90, 90, 1000, true);
 
-
-  // moveServos(90, 90, 90, 90, 50000);  // Move servos to initial position
-  // rampToAngle(90, 90, 90, 90, 3000);
   delay(2000);  // Wait for movement to complete
-  // moveServo(-90, j1Servo);
-
-  // delay(3000);
-  // //Sequence 1
-  // moveServo(-80, j2Servo);
-  // moveServo(20, j3Servo);
-  // delay(3000);
-  // moveServo(0, j2Servo);
-  // moveServo(0, j3Servo);
-  // j2Servo.writeMicroseconds(750);
-  // delay(5000);
-  // j2Servo.writeMicroseconds(2600);
-  
 }
 
 void loop()
 {
-  // gServo.write(90);
-  // rampToAngle(90, 60, 180, 90, 1500);
-  gServo.write(0);
-  // delay(1000);
-  // rampToAngle(90, 90, 0, 180, 2000);
-  // gServo.write(180);
-  // delay(1000);
-  // moveToPos(0, 100, 0);
-  // delay(1000);
-  // moveToPos(0, 200, 200);
-  // delay(1000);
+   // 1. Poll Serial for information
+  if (Serial.available() > 0) {
+    String data = Serial.readStringUntil('\n');
+    // String data = "0|10|20|30\n";
+    // Serial.print("[Arduino Rx]> ");
+    // Serial.print(data);
+    // Serial.println();
 
+    // 2. Determine whether to pick or place from message
 
-  // int z = 0;
-  // for (z = 0; z <= 200; z+=50)
-  // {
-    // moveToPos(0, 100, 0);
-    // delay(100);
-  // }
-  // moveServo(-90, j3Servo);
-  // moveToPos(0, 200, 0);
+    // Message Format
+    // "action|x|y|z" -> "0|10|20|30"
+
+    // 0 - pick , 1 - place
+    String action = getValue(data,'|',0);
+    // Get - Coordinates
+    String x_coord = getValue(data,'|',1);
+    String y_coord = getValue(data,'|',2);
+    String z_coord = getValue(data,'|',3);
+
+    // Serial.print("Parsed Message: ");
+    // Serial.print(action);
+    // Serial.print(" ");
+    // Serial.print(x_coord);
+    // Serial.print(" ");
+    // Serial.print(y_coord);
+    // Serial.print(" ");
+    // Serial.print(z_coord);
+    // Serial.println();
+
+  
+
+  // typecast action to int
+  int a = action.toInt();
+
+  // 3. If picking, get coordinate info from message
+  if (a == 0){
+    int x = x_coord.toInt();
+    int y = y_coord.toInt();
+    int z = z_coord.toInt();
+
+    // 4. Send coordinates to IK function
+    // pickStatus = pick(x, y, z);
+    moveToPos(x, y, z);
+    // pickStatus = 1;
+    // 6. Send message to Pi
+    // if (pickStatus == 1) {
+    //   Serial.println("SUCCESS");
+    // } else {
+    //   Serial.println("FAILURE");
+    // }
+    // pickStatus = 0;
+  } else{
+      Serial.println("PLACING");
+  }
+  }
+
   // delay(3000);
-  // moveToPos(0,200,(200 / 2)); // devide by 2 to correct error
-  // delay(6000);
-  // delay(100);
-  // moveServos(90, 90, 120, 0, 60000);  // Move servos to these angles in 2000 milliseconds
-  // // delay(2000);  // Wait for movement to complete
-  // // moveServos(0, 0, 0, 0, 2000);  // Move servos back to initial position in 2000 milliseconds
-  // // delay(2000);  // Wait for movement to complete
-  // updateServo();  
-  // delay(10); 
-  // 
-  // calculateInverseKinematics(300, 200, 0, 0);
-  // calculateInverseKinematics(300, 0, 0, 0);
-
+  // Serial.println("Waiting for message...");
 }
 
 void moveToPos(double x, double y, double z)
 {
-  // double b = atan2(x, y) * (180 / 3.1415); // base angle
-
-  // double l = sqrt(x * x + y * y); // x and y extension
-
-  // double h = sqrt(l * l + z * z);
-
-  // double phi = atan(z / l) * (180 / 3.1415);
-
-  // double theta = acos((h / 2) / 150) * (180 / 3.1415); // perfect
-
-  // double a1 = phi + theta; // angle for first part of the arm
-  // double a2 = phi - theta; // angle for second part of the arm
-
-  // // moveToAngle(b,a1,a2,g);
-  // Serial.print("b: ");
-  // Serial.println(b);
-  // Serial.print("a1: ");
-  // Serial.println(-(a1));
-  // Serial.print("a2: ");
-  // Serial.println(a2);
-  // Serial.println();
-  // // delay(3000);
-  // moveServo(b, j1Servo);
-  // // if (z == 0)
-  // moveServo(-(90 - a1), j2Servo);
-  // // else
-  //   // moveServo((-(90 - a1)), j2Servo);
-  // if (z == 0)
-  //   moveServo(90 - (180 - (a1 * 2)), j3Servo);
-  // else
-  //   moveServo(-90 + (180 - (a1 * 2)), j3Servo);
   Serial.println("Values of x , y , z :");
    
  
@@ -220,27 +200,11 @@ void moveToPos(double x, double y, double z)
  // moveServo(q1, j2Servo);
   delay(200);
   rampToAngle(theta, q1, degrees(q2), 180, 800);
-
-  
-
-
 }
 
 void moveServo(int angle, Servo servo)
 {
-
-  // int servoAngle = 90 - angle;
   int servoAngle = map(angle, 90, -90, 700, 2500);
-  // Serial.println(servoAngle);
-
-  // if (servoAngle > 180 || servoAngle < 0)
-    // Serial.println("Angle out of range");
-
-  // constrain the angle to the range 0-180
-  // servoAngle = constrain(servoAngle, 0, 180);
-
-  // move the servo to the specified angle
-  // servo.write(servoAngle);
   servo.writeMicroseconds(servoAngle);
 }
 
@@ -301,42 +265,6 @@ void rampToAngle(double s1, double s2, double s3, double s4, unsigned long t, bo
   }
 }
 
-// void calculateInverseKinematics(int x_e, int y_e, int z_e, int phi_e) {
-//   double l1 = 180;
-//   double l2 = 115;
-//   double l3 = 170;
-
-//   double x_w = x_e - (l3 * cos(phi_e));
-//   double y_w = y_e - (l3 * sin(phi_e));
-
-
-//   double theta2 = acos((sq(l1) + sq(l2) - sq(x_w) - sq(y_w)) / (2 * l1 * l2));
-//   double theta1 = (atan2(y_w , x_w)) - acos((sq(x_w) + sq(y_w) + sq(l1) - sq(l2)) / (2 *l1 * sqrt(sq(x_w) + sq(y_w))));
-
-//   // convert to degrees
-//   if (y_e == 0)
-//     theta1 = 90 + (theta1 * (180 / PI)); // remains
-//   else
-//     theta1 = 90 - (theta1 * (180 / PI)); // remains
-//   theta2 = 180 - (theta2 * (180 / PI)) + 90;
-  
-
-//   double theta3 = phi_e - theta1 - theta2;
-
-//   // theta2 = (180 - (theta2 > 90 ? theta2 - 90 : theta2 + 90));
-
-//   // theta1 = map(theta1, -90, 90, 0, 180);
-
-//   rampToAngle(90, abs(theta1) + 20, 180 - (abs(theta2) - 60) + 90, abs(theta3), 2000);
-//   Serial.print("theta 1: "); Serial.print(theta1);
-//   Serial.print("\ttheta 2: "); Serial.print(theta2);
-//   Serial.print("\ttheta 3: "); Serial.print(theta3);
-//   Serial.print("\tx_w: "); Serial.print(x_w);
-//   Serial.print("\ty_w: "); Serial.println(y_w);
-
-  
-// }
-
 void calculateInverseKinematics(int x_e, int y_e, int z_e, int phi_e) {
   double l1 = 180;
   double l2 = 115;
@@ -370,4 +298,19 @@ void calculateInverseKinematics(int x_e, int y_e, int z_e, int phi_e) {
   Serial.print("\ty_w: "); Serial.println(y_w);
 }
 
+String getValue(String data, char separator, int index)
+{
+  int found = 0;
+  int strIndex[] = {0, -1};
+  int maxIndex = data.length()-1;
 
+  for(int i=0; i<=maxIndex && found<=index; i++){
+    if(data.charAt(i)==separator || i==maxIndex){
+        found++;
+        strIndex[0] = strIndex[1]+1;
+        strIndex[1] = (i == maxIndex) ? i+1 : i;
+    }
+  }
+
+  return found>index ? data.substring(strIndex[0], strIndex[1]) : "";
+}
