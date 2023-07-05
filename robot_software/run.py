@@ -7,6 +7,8 @@ import time
 import cv2
 
 
+# TODO: Remove intentional block used during development
+
 print("\n------------\nInitializing Raspberry Pi...")
 
 # Initialize Camera
@@ -148,8 +150,10 @@ def arm_comms_simulator(gpio_pick: int = 0, gpio_place: int = 0):
         return 1
 
 
-# arm_comms_simulator(1)
 
+# Add an intentional block for debugging purposes
+print("Press ENTER to start Cycle...")
+input()
 
 # * Super Loop
 try:
@@ -172,7 +176,7 @@ try:
         if pick_event:
             print("Pick event")
             world_coordinates = camera_inference()
-           
+
             if world_coordinates:
                 mobile_platform_event = 1
             else:
@@ -189,7 +193,7 @@ try:
             GPIO.output(go_pin, False)
             place_event = 0
             pick_event = 0
-            
+
             # 8. Mobile-Platform pulls GPIO.Pick or GPIO.Place low
             # give mobile platform time to pull GPIO low
             time.sleep(2)
