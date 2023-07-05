@@ -1,10 +1,7 @@
-from ultralytics.yolo.utils.plotting import Annotator
-from model_inference import infer, model
+from vision.model_inference import infer
 import RPi.GPIO as GPIO
 from datetime import datetime
-import time
 import cv2
-import json
 
 # Setup Camera
 cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)
@@ -109,55 +106,5 @@ def video_snap_infer():
     cap.release()
     cv2.destroyAllWindows()
 
-# # https://stackoverflow.com/questions/56115874/how-to-convert-bounding-box-x1-y1-x2-y2-to-yolo-style-x-y-w-h
-# def yolobbox2bbox(x, y, w, h):
-#     x1, y1 = x-w/2, y-h/2
-#     x2, y2 = x+w/2, y+h/2
-
-#     return x1, y1, x2, y2
-
 
 video_snap_infer()
-
-# * Super Loop
-# while True:
-
-#     # * Mobile-Platform - Pi Communication Simulator
-#     # 1. Pi Polls GPIO for event from Mobile-Platform
-#     # 2. If GPIO.23 is high, action = Pick
-#     # 3. If GPIO.24 is high, action = Place
-
-#     # 1. Pi Polls GPIO for event from Mobile-Platform
-#     pick_event = GPIO.input(pick_pin)
-#     place_event = GPIO.input(place_pin)
-
-#     # 2. If GPIO.23 is high, action = Pick
-#     if pick_event:
-#         # mobile_platform_event = arm_comms_simulator(1, 0)
-#         pass
-
-#     # 3. If GPIO.24 is high, action = Place
-#     elif place_event:
-#         # mobile_platform_event = arm_comms_simulator(0, 1)
-#         pass
-
-#     time.sleep(5)
-#     mobile_platform_event = 1
-
-#     if mobile_platform_event:
-#         print("Mobile Platform Go")
-#         GPIO.output(go_pin, True)
-#         place_event = 0
-#         pick_event = 0
-
-#         # 8. Mobile-Platform pulls GPIO.Pick or GPIO.Place low
-#         # ? give mobile platform time to pull GPIO low
-#         time.sleep(1)
-#         pick_event = GPIO.input(pick_pin)
-
-#         # 9. Pi pulls GPIO.Go low (for next cycle)
-#         if not pick_event:
-#             GPIO.output(go_pin, False)
-#             mobile_platform_event = 0
-#             print("Event Cycle Complete")
-#             print("---------------------------------------\n")
