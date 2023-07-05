@@ -5,7 +5,7 @@
 #include "Preferences.h"
 #include <Encoder.h>
 #include <Wire.h>
-# include "pickPlace.h"
+// # include "pickPlace.h"
 
 MobilePlatform platform;
 
@@ -66,10 +66,10 @@ enum State
   BACK_TO_START,
   STOP
 };
-void customDelay(unsigned long milliseconds);
+void customDelay(unsigned long milliseconds, bool pickOrDrop=false);
 unsigned long PREVIOUS_TIME;
 State state;
-bool done;
+// bool done;
 float mapToMotorSpeed(float pid_output);
 
 // Line following
@@ -158,6 +158,12 @@ void setup()
   //   }
   //   Serial.println(distance);
   // }
+  digitalWrite(DEBUGPIN, LOW);
+  digitalWrite(PICKPIN, LOW);
+
+  //
+  // while(true) 
+  //   customDelay(100);
 }
 void loop()
 {
@@ -181,8 +187,8 @@ void loop()
     customDelay(1000);
     rotateToAngle(90, 10) ;
     //getPinValue();
-    stopAtObjectLocation();
-    customDelay(2000); // wait for the trailer to be picked
+    // stopAtObjectLocation();
+    customDelay(2000, true); // wait for the trailer to be picked
     state = PICK_ENGINE;
     break;
   case PICK_ENGINE:
@@ -218,7 +224,7 @@ void loop()
 
     followLine(50); // follow line. Stop at obstacle_distance <= 50 cm
     // getPinValue();
-    stopAtObjectLocation();
+    // stopAtObjectLocation();
     customDelay(2000); // wait to pick engine
     state = PICK_WHEELS;
     // state = STOP;
@@ -252,7 +258,7 @@ void loop()
     rotateToAngle(-90, 10);
     customDelay(100);
     // getPinValue();
-    stopAtObjectLocation();
+    // stopAtObjectLocation();
     customDelay(2000); // Wait to pick wheels
     state = PICK_CABIN;
     // state = STOP;
@@ -294,7 +300,7 @@ void loop()
     customDelay(100);
     followLine(50);
     // getPinValue();
-    stopAtObjectLocation();
+    // stopAtObjectLocation();
     customDelay(2000);// wait to pick cabin
     
     state = BACK_TO_CHASIS;
@@ -335,7 +341,7 @@ void loop()
     customDelay(100);
     followLine(50);
     // getPinValue();
-    stopAndPlace();
+    // stopAndPlace();
     customDelay(2000); // wait to place
     state = BACK_TO_START;
   
@@ -380,11 +386,27 @@ void loop()
   }
 }
 
-void customDelay(unsigned long milliseconds)
+void customDelay(unsigned long milliseconds, bool pickOrDrop)
 {
   PREVIOUS_TIME = millis();
-  while (abs(millis() - PREVIOUS_TIME) <= milliseconds)
+  bool continueToNextState = 1;
+
+  if (pickOrDrop) {
+      while (true) {
+        digitalWrite(PICKPIN, HIGH);
+        digitalWrite(DEBUGPIN, HIGH);
+        // poll continue pin
+        continueToNextState = digitalRead(CONTINUEPIN);
+        if (continueToNextState == LOW)
+          break;
+        // break if continuepin goes high
+      }
+    }
+  else {
+    while (abs(millis() - PREVIOUS_TIME) <= milliseconds) {
     setGyroReadings();
+  }
+  }
 }
 
 void moveCar(int speedLeft, int speedRight)
