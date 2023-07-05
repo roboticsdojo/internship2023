@@ -77,13 +77,18 @@ void setup()
 
 void loop()
 {
-  gServo.write(90);
-  rampToAngle(90, 60, 180, 90, 1500);
+  // gServo.write(90);
+  // rampToAngle(90, 60, 180, 90, 1500);
   gServo.write(0);
-  delay(1000);
-  rampToAngle(90, 90, 0, 180, 2000);
-  gServo.write(90);
-  delay(1000);
+  // delay(1000);
+  // rampToAngle(90, 90, 0, 180, 2000);
+  // gServo.write(180);
+  // delay(1000);
+  // moveToPos(0, 100, 0);
+  // delay(1000);
+  // moveToPos(0, 200, 200);
+  // delay(1000);
+
 
   // int z = 0;
   // for (z = 0; z <= 200; z+=50)
@@ -111,37 +116,113 @@ void loop()
 
 void moveToPos(double x, double y, double z)
 {
-  double b = atan2(x, y) * (180 / 3.1415); // base angle
+  // double b = atan2(x, y) * (180 / 3.1415); // base angle
 
-  double l = sqrt(x * x + y * y); // x and y extension
+  // double l = sqrt(x * x + y * y); // x and y extension
 
-  double h = sqrt(l * l + z * z);
+  // double h = sqrt(l * l + z * z);
 
-  double phi = atan(z / l) * (180 / 3.1415);
+  // double phi = atan(z / l) * (180 / 3.1415);
 
-  double theta = acos((h / 2) / 150) * (180 / 3.1415); // perfect
+  // double theta = acos((h / 2) / 150) * (180 / 3.1415); // perfect
 
-  double a1 = phi + theta; // angle for first part of the arm
-  double a2 = phi - theta; // angle for second part of the arm
+  // double a1 = phi + theta; // angle for first part of the arm
+  // double a2 = phi - theta; // angle for second part of the arm
 
-  // moveToAngle(b,a1,a2,g);
-  Serial.print("b: ");
-  Serial.println(b);
-  Serial.print("a1: ");
-  Serial.println(-(a1));
-  Serial.print("a2: ");
-  Serial.println(a2);
-  Serial.println();
-  // delay(3000);
-  moveServo(b, j1Servo);
+  // // moveToAngle(b,a1,a2,g);
+  // Serial.print("b: ");
+  // Serial.println(b);
+  // Serial.print("a1: ");
+  // Serial.println(-(a1));
+  // Serial.print("a2: ");
+  // Serial.println(a2);
+  // Serial.println();
+  // // delay(3000);
+  // moveServo(b, j1Servo);
+  // // if (z == 0)
+  // moveServo(-(90 - a1), j2Servo);
+  // // else
+  //   // moveServo((-(90 - a1)), j2Servo);
   // if (z == 0)
-  moveServo(-(90 - a1), j2Servo);
+  //   moveServo(90 - (180 - (a1 * 2)), j3Servo);
   // else
-    // moveServo((-(90 - a1)), j2Servo);
-  if (z == 0)
-    moveServo(90 - (180 - (a1 * 2)), j3Servo);
-  else
-    moveServo(-90 + (180 - (a1 * 2)), j3Servo);
+  //   moveServo(-90 + (180 - (a1 * 2)), j3Servo);
+  Serial.println("Values of x , y , z :");
+   
+ 
+   Serial.print(x);
+   Serial.print(" ");
+   Serial.print(y);
+    Serial.print(" ");
+   Serial.println(z);
+    Serial.print(" ");
+
+   
+    double pi = 3.141592653589793238462643383279502884197;
+
+     // z= z  50; 
+    // y = y - 80;
+  double l1 = 180.00; 
+  double l2 = 120.00;
+  double Ls = 350;
+  //cosine rule 
+  double q2 = PI -  acos ( ( (l1 * l1) + (l2 * l2 ) - (x * x ) - (y * y) ) / (2 * l1 * l2) ); //* 180 / 3.142;
+ double q21 = round(acos ( ((x *x ) + (y * y ) - (l1 * l1) - (l2 * l2)) / (2 * l1 * l2 ))); 
+
+  double l = round(sqrt(x * x + y * y)); // x and y extension
+
+  //total length of the link 
+  //l = 350; 
+
+
+  // angle q1 
+  double q1 =  degrees(atan2(z , l )) ;//- degrees(atan( (l2 * degrees(sin (q21)) / (l1 + l2 * degrees(cos (q21))))));
+  Serial.print("Value of q1 is :");
+  Serial.print(q1);
+  Serial.print("\n\n");
+  q1 = round(q1);
+
+
+  double b = atan2(x, y) * (180 / pi); // base angle
+
+
+
+  Serial.print(" BOTH VALUES OF Q2 ARE "); 
+  Serial.print(q2);
+  Serial.print("  ");
+  Serial.println(q21);
+
+  double h = round(sqrt(l * l + z * z));
+  /*
+  Since our link lengths are in the ratio of 18 cm by 12 cm 
+  we divide h by 2.5 to 
+  */
+  //double theta = acos((h / 2.5) / 150) * (180 / 3.1415); // perfect
+  double theta = round(atan2( y, x) * 180/ pi);  // atan2 to identify coordinate frame
+  theta = 180 - theta -8; 
+  Serial.print("value of theta is :");
+  Serial.print("value of q2 is :");
+  Serial.println(q2);
+  // snail(q2, j3Servo);    //////
+  //moveServo(q2, j3Servo);
+  Serial.println(theta);
+  // snail(theta,j1Servo); ///////
+ // moveServo(theta, j1Servo);
+  delay(200);
+  // if (z == 0)
+  //moveServo(-(90 - a1), j2Servo);
+
+  Serial.println("value of q1 is :");
+  Serial.print(q1);
+  Serial.println();
+  q1 = q1 + 13;
+  // snail(q1, j2Servo); //////
+ // moveServo(q1, j2Servo);
+  delay(200);
+  rampToAngle(theta, q1, degrees(q2), 180, 800);
+
+  
+
 
 }
 
