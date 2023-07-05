@@ -1,8 +1,20 @@
+from vision.cam_to_world.cam_to_world import get_world_cooridinates_final
+from vision.model_inference import infer
+# from datetime import datetime
 import RPi.GPIO as GPIO
-import serial
+# import serial
 import time
-# import cv2
+import cv2
 
+
+print("\n------------\nInitializing Raspberry Pi...")
+
+# Initialize Camera
+cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)
+FRAME_WIDTH, FRAME_HEIGHT = 640, 640
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_WIDTH)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
+print("Camera Initialized Successfully")
 
 # Setup Serial Communication
 # ser = serial.Serial('/dev/ttyACM2', 9600, timeout=1)
@@ -13,20 +25,65 @@ pick_pin = 23
 place_pin = 24
 go_pin = 25
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(pick_pin, GPIO.IN)
-GPIO.setup(place_pin, GPIO.IN)
-GPIO.setup(go_pin, GPIO.OUT)
-
-print("\n-----\nPi Ready")
-
 mobile_platform_event = 0
 
-# Camera Inference Function
-def camera_inference():
-    x, y, z = 10, 20, 30
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(go_pin, GPIO.OUT)
+# Avoid floating state by attaching input pins to internal pulldown resistors
+GPIO.setup(pick_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(place_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+print("GPIO Initialized Successfully")
+print("Raspberry Pi Ready\n------------\n")
 
-    return (x, y, z)
+
+def camera_inference():
+
+    print("\nInferring on snapshot...")
+    inference_result = snap_infer()
+    print(f"\nInference Result: {inference_result}")
+
+    if inference_result:
+        centroids = get_centroids(inference_result)
+        print(f"Centroids: {centroids}")
+
+        print("\nResolving World Coordinate...")
+        world_coordinates = get_world_cooridinates_final(centroids)
+
+        return world_coordinates
+
+    else:
+        # TODO: Implement retry logic
+        print("No object detected! Retrying")
+        return []
+
+
+def get_centroids(coordinates: list):
+    centroids = []
+
+    for coordinate in coordinates:
+        x1 = int(coordinate['x1'])
+        x2 = int(coordinate['x2'])
+        y1 = int(coordinate['y1'])
+        y2 = int(coordinate['y2'])
+
+        x = (x1 + x2) // 2
+        y = (y1 + y2) // 2
+        centroids.append((x, y))
+
+    return centroids
+
+
+def snap_infer():
+    ret, frame = cap.read()
+    flipped_frame = cv2.flip(frame, -1)  # flip both axes
+
+    # TODO: Add error handling
+    if not ret:
+        print("Failed to Read Camera Frame")
+
+    inference_result = infer(flipped_frame)
+
+    return inference_result
 
 
 def arm_comms_simulator(gpio_pick: int = 0, gpio_place: int = 0):
@@ -95,9 +152,8 @@ def arm_comms_simulator(gpio_pick: int = 0, gpio_place: int = 0):
 
 
 # * Super Loop
-while True:
-    
-    try:
+try:
+    while True:
         time.sleep(0.2)
 
         # * Mobile-Platform - Pi Communication
@@ -115,17 +171,13 @@ while True:
         print(f"Pick event: {pick_event} Place event: {place_event}")
         if pick_event:
             print("Pick event")
-            camera_inference()
-            # // action = 0
-            # mobile_platform_event = arm_comms_simulator(1, 0)
-            counter = 0
-            for i in range(10):
-                counter += 1
-                time.sleep(1)
-                print(f"waiting: {counter}")
-
-            # time.sleep(60)
-            mobile_platform_event = 1
+            world_coordinates = camera_inference()
+           
+            if world_coordinates:
+                mobile_platform_event = 1
+            else:
+                print("No object detected! PANIC MODE!!!")
+                mobile_platform_event = 1
 
         # 3. If GPIO.24 is high, action = Place
         elif place_event:
@@ -137,8 +189,7 @@ while True:
             GPIO.output(go_pin, False)
             place_event = 0
             pick_event = 0
-            print(f"Pick event: {pick_event} Place event: {place_event}")
-
+            
             # 8. Mobile-Platform pulls GPIO.Pick or GPIO.Place low
             # give mobile platform time to pull GPIO low
             time.sleep(2)
@@ -146,18 +197,22 @@ while True:
             print(f"Pick event: {pick_event} Place event: {place_event}")
 
             print("\n---------\n")
-            break
+            # break
 
-            # # 9. Pi pulls GPIO.Go low (for next cycle)
-            # if not pick_event:
-            #     GPIO.output(go_pin, False)
-            #     mobile_platform_event = 0
-            #     print("Event Cycle Complete")
-            #     print("---------------------------------------\n")
-    except KeyboardInterrupt:
-        print("Keyboard Interrupt")
-    except Exception as e:
-        print(f"Unexpected Error: {e}")
-    finally:
-        GPIO.cleanup()
-        break
+            # 9. Pi pulls GPIO.Go low (for next cycle)
+            if not pick_event:
+                GPIO.output(go_pin, True)
+                mobile_platform_event = 0
+                print("EVENT CYCLE COMPLETE")
+                print("\n---------------------------------------\n")
+
+except KeyboardInterrupt:
+    print("Keyboard Interrupt")
+except Exception as e:
+    print(f"Unexpected Error: {e}")
+finally:
+
+    cap.release()
+    GPIO.cleanup()
+
+    print("\n++++++++\nProgram Terminated Gracefully\n++++++++\n")
