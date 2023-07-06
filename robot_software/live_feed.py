@@ -1,3 +1,4 @@
+from vision.cam_to_world.cam_to_world import get_world_cooridinates_final
 from vision.model_inference import infer
 import RPi.GPIO as GPIO
 from datetime import datetime
@@ -8,27 +9,6 @@ cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)
 # Set Dimensions
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 640)
-
-
-# Setup GPIO
-pick_pin = 23
-place_pin = 24
-go_pin = 25
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(pick_pin, GPIO.IN)
-GPIO.setup(place_pin, GPIO.IN)
-GPIO.setup(go_pin, GPIO.OUT)
-
-
-mobile_platform_event = 0
-
-
-# ---------- Camera Related Functions ----------
-def camera_inference():
-    x, y, z = 10, 20, 30
-
-    return (x, y, z)
 
 
 def get_centroids(coordinates: list):
@@ -47,7 +27,7 @@ def get_centroids(coordinates: list):
     return centroids
 
 
-def video_snap_infer():
+def camera_inference():
     while cap.isOpened():
         now = datetime.now()
 
@@ -57,17 +37,14 @@ def video_snap_infer():
             print("Failed to Read Camera Frame")
             break
 
-        # cv2.imwrite('infer_from_snapshot.jpg', frame)
-
-        # Get FPS
-        FPS = cap.get(cv2.CAP_PROP_FPS)
-
         # Show Feed
         live_window = 'Live Feed'
         # Re-position Window
         cv2.namedWindow(live_window)
         cv2.moveWindow(live_window, 0, 0)
         cv2.imshow(live_window, flipped_frame)
+        # cv2.line(img=flipped_frame, pt1=(320, 0), pt2=(320, 640),
+        #          color=(0, 255, 255), thickness=2, lineType=8, shift=0)
 
         if cv2.waitKey(1) & 0xFF == ord('l'):
             # Infer on snapshot
@@ -76,29 +53,10 @@ def video_snap_infer():
             print(inference_result)
 
             centroids = get_centroids(inference_result)
-            print(centroids)
+            print(f"Centroids: {centroids}")
 
-            # Visualize Result
-            '''
-            cv2.rectangle(img, (x1, y1), (x2, y2), (255,0,0), 2)
-
-
-            x1,y1 ------
-            |          |
-            |          |
-            |          |
-            --------x2,y2
-            
-            image = cv2.imread('testimage.jpg')
-            height, width, channels = image.shape
-            start_point = (0,0)
-            end_point = (width, height)
-            color = (0,0,255)
-            thickness = 5
-
-            image = cv2.rectangle(image, start_point, end_point, color, thickness)
-            cv2.imshow('Rectangle',image)
-            '''
+            world_coordinates = get_world_cooridinates_final(centroids)
+            print(f"World Coordinates: {world_coordinates}")
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -107,4 +65,4 @@ def video_snap_infer():
     cv2.destroyAllWindows()
 
 
-video_snap_infer()
+camera_inference()
