@@ -23,7 +23,7 @@ float initialTheta3 = 90.0;
 float initialTheta4 = 0.0;
 
 void moveServo(int angle, Servo servo);
-void moveToPos(double x, double y, double z);
+int moveToPos(double x, double y, double z);
 
 rampInt servo1Ramp;  
 rampInt servo2Ramp;  
@@ -59,7 +59,20 @@ void setup()
   j4Servo.write(90);
   rampToAngle(90, 90, 90, 90, 1000, true);
 
-  delay(2000);  // Wait for movement to complete
+  // delay (2000);
+
+  // while (true) {
+  //   moveToPos(0, 100, 0);
+  //   gServo.write(0);
+  //   delay(1000);
+  //   gServo.write(90);
+  //   delay(1000);
+  //   // delay(1000);
+  //   moveToPos(0, 200, 200);
+  //   delay(1000);
+  // }
+
+  // delay(2000);  // Wait for movement to complete
 }
 
 void loop()
@@ -108,12 +121,22 @@ void loop()
     // 4. Send coordinates to IK function
     // pickStatus = pick(x, y, z);
     moveToPos(x, y, z);
+    delay(1000);
+    gServo.write(90);
+    delay(1000);
+    gServo.write(0);
+    delay(1000);
+    rampToAngle(90, 90, 0, 180, 2000);
+
     // pickStatus = 1;
     // 6. Send message to Pi
     // if (pickStatus == 1) {
-    //   Serial.println("SUCCESS");
+    Serial.print(String(x));
+    Serial.print(String(y));
+    Serial.println(String(z));
+
     // } else {
-    //   Serial.println("FAILURE");
+      // Serial.println("FAILURE");
     // }
     // pickStatus = 0;
   } else{
@@ -125,17 +148,17 @@ void loop()
   // Serial.println("Waiting for message...");
 }
 
-void moveToPos(double x, double y, double z)
+int moveToPos(double x, double y, double z)
 {
-  Serial.println("Values of x , y , z :");
+  // Serial.println("Values of x , y , z :");
    
  
-   Serial.print(x);
-   Serial.print(" ");
-   Serial.print(y);
-    Serial.print(" ");
-   Serial.println(z);
-    Serial.print(" ");
+  //  Serial.print(x);
+  //  Serial.print(" ");
+  //  Serial.print(y);
+  //   Serial.print(" ");
+  //  Serial.println(z);
+  //   Serial.print(" ");
 
    
     double pi = 3.141592653589793238462643383279502884197;
@@ -157,9 +180,9 @@ void moveToPos(double x, double y, double z)
 
   // angle q1 
   double q1 =  degrees(atan2(z , l )) ;//- degrees(atan( (l2 * degrees(sin (q21)) / (l1 + l2 * degrees(cos (q21))))));
-  Serial.print("Value of q1 is :");
-  Serial.print(q1);
-  Serial.print("\n\n");
+  // Serial.print("Value of q1 is :");
+  // Serial.print(q1);
+  // Serial.print("\n\n");
   q1 = round(q1);
 
 
@@ -167,10 +190,10 @@ void moveToPos(double x, double y, double z)
 
 
 
-  Serial.print(" BOTH VALUES OF Q2 ARE "); 
-  Serial.print(q2);
-  Serial.print("  ");
-  Serial.println(q21);
+  // Serial.print(" BOTH VALUES OF Q2 ARE "); 
+  // Serial.print(q2);
+  // Serial.print("  ");
+  // Serial.println(q21);
 
   double h = round(sqrt(l * l + z * z));
   /*
@@ -180,26 +203,28 @@ void moveToPos(double x, double y, double z)
   //double theta = acos((h / 2.5) / 150) * (180 / 3.1415); // perfect
   double theta = round(atan2( y, x) * 180/ pi);  // atan2 to identify coordinate frame
   theta = 180 - theta -8; 
-  Serial.print("value of theta is :");
-  Serial.print("value of q2 is :");
-  Serial.println(q2);
+  // Serial.print("value of theta is :");
+  // Serial.print("value of q2 is :");
+  // Serial.println(q2);
   // snail(q2, j3Servo);    //////
   //moveServo(q2, j3Servo);
-  Serial.println(theta);
+  // Serial.println(theta);
   // snail(theta,j1Servo); ///////
  // moveServo(theta, j1Servo);
   delay(200);
   // if (z == 0)
   //moveServo(-(90 - a1), j2Servo);
 
-  Serial.println("value of q1 is :");
-  Serial.print(q1);
-  Serial.println();
+  // Serial.println("value of q1 is :");
+  // Serial.print(q1);
+  // Serial.println();
   q1 = q1 + 13;
   // snail(q1, j2Servo); //////
  // moveServo(q1, j2Servo);
   delay(200);
   rampToAngle(theta, q1, degrees(q2), 180, 800);
+
+  return 1;
 }
 
 void moveServo(int angle, Servo servo)
