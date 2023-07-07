@@ -151,6 +151,7 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
 
     time.sleep(1)
     print("Arm Sequence Complete\n")
+    #! remove this
     return 1
 
 
