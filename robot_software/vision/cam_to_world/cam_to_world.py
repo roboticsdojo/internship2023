@@ -56,7 +56,7 @@ def resolve_world_coordinates(worldCoordinates: list):
 
 def get_world_coordinates_3d(worldCoordinates: list):
     world_coordinates = []
-    depth = 0
+    depth = 20
 
     for coordinate in worldCoordinates:
 
