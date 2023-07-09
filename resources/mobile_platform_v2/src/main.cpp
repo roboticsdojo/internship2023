@@ -174,7 +174,7 @@ void loop()
     rotateToAngle(0, 10);
     customDelay(100);
     // moveDistance(185);
-    moveCar(200, 200);
+    moveCar(240, 240);
     customDelay(6000);
     moveCar(0, 0);
     customDelay(100);
@@ -204,17 +204,19 @@ void loop()
     targetAngle = -(150);
     moveDistance(1000, true); // move and detect line // first line
     customDelay(100);
-    minSpeed = 100;
-    maxSpeed = 100;
+    minSpeed = 150;
+    maxSpeed = 150;
     moveDistance(100);        // Move past line
     moveDistance(1000, true); // move and detect second line
     customDelay(100);
+
+
 
     // moveCar(200, 200);
     // customDelay(100);
     // moveCar(0,0);
      // Rotate
-    for (int i = angle; i < -100; i += 5) {
+    for (int i = angle; i < -90; i += 5) {
       rotateToAngle(i, 2);
       customDelay(10);
     }
@@ -225,7 +227,7 @@ void loop()
     followLine(50); // follow line. Stop at obstacle_distance <= 50 cm
     // getPinValue();
     // stopAtObjectLocation();
-    customDelay(2000); // wait to pick engine
+    customDelay(2000, true); // wait to pick engine
     state = PICK_WHEELS;
     // state = STOP;
     break;
@@ -259,14 +261,15 @@ void loop()
     customDelay(100);
     // getPinValue();
     // stopAtObjectLocation();
-    customDelay(2000); // Wait to pick wheels
+    customDelay(2000, true); // Wait to pick wheels
     state = PICK_CABIN;
     // state = STOP;
     break;
   case PICK_CABIN:
     // Reverse
+    rotateToAngle(-70, 10);
     moveCar(-200, -200);
-    customDelay(4000);
+    customDelay(6000);
     moveCar(0, 0);
     customDelay(100);
 
@@ -393,14 +396,18 @@ void customDelay(unsigned long milliseconds, bool pickOrDrop)
 
   if (pickOrDrop) {
       while (true) {
+        setGyroReadings();
         digitalWrite(PICKPIN, HIGH);
         digitalWrite(DEBUGPIN, HIGH);
         // poll continue pin
         continueToNextState = digitalRead(CONTINUEPIN);
+        // break if continuepin goes high
         if (continueToNextState == LOW)
           break;
-        // break if continuepin goes high
       }
+
+      digitalWrite(PICKPIN, LOW);
+      digitalWrite(DEBUGPIN, LOW);
     }
   else {
     while (abs(millis() - PREVIOUS_TIME) <= milliseconds) {
