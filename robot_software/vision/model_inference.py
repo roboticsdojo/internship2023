@@ -4,6 +4,7 @@ from datetime import datetime, date
 from pathlib import Path
 import cv2
 import json
+import time
 
 
 # Directories for image and label logging
@@ -28,7 +29,8 @@ def infer(img: str):
 
     # result = model.predict(img, conf=0.5, show=True, save=True, save_txt=True, save_conf=True)
     result = model(img)[0]
-    now = datetime.now()
+    # now = datetime.now()
+    now = time.strftime("%H:%M:%S", time.localtime())
 
     #! Could annotation be a bottleneck?
     # Visualize for debugging
