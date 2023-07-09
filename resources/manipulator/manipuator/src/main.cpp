@@ -126,7 +126,7 @@ void loop()
     delay(1000);
     gServo.write(0);
     delay(1000);
-    rampToAngle(90, 90, 0, 180, 2000);
+    rampToAngle(90, 90, 0, 180, 1000);
 
     // pickStatus = 1;
     // 6. Send message to Pi
