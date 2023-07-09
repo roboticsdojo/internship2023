@@ -1,8 +1,18 @@
 from ultralytics.yolo.utils.plotting import Annotator
 from ultralytics import YOLO
-from datetime import datetime
+from datetime import datetime, date
+from pathlib import Path
 import cv2
 import json
+import time
+
+
+# Directories for image and label logging
+date_today = date.today()
+img_path = f"./vision/logs/{date_today}/images"
+label_path = f"./vision/logs/{date_today}/labels"
+# Path(img_path).mkdir(parents=True, exist_ok=True)
+# Path(label_path).mkdir(parents=True, exist_ok=True)
 
 
 # TODO: Replace print with logging.debug
@@ -19,7 +29,8 @@ def infer(img: str):
 
     # result = model.predict(img, conf=0.5, show=True, save=True, save_txt=True, save_conf=True)
     result = model(img)[0]
-    now = datetime.now()
+    # now = datetime.now()
+    now = time.strftime("%H:%M:%S", time.localtime())
 
     #! Could annotation be a bottleneck?
     # Visualize for debugging
@@ -68,7 +79,7 @@ def infer(img: str):
         for object in inference_result_list:
             filtered_json_list.append(object["box"])
 
-        with open(f"./vision/logs/labels/results.json", "a") as f:
+        with open(f"{label_path}/results.json", "a") as f:
             f.write(inference_result_json_object)
         print("[SUCCESS] Logged JSON Object to results.json")
 
@@ -77,16 +88,16 @@ def infer(img: str):
         # save visualization
         # // result.save(f"./vision/logs/images/{now}.jpg")
         cv2.imwrite(
-            f'./vision/logs/images/{now} {detected_object}.jpg', inference_frame)
+            f'{img_path}/{now} {detected_object}.jpg', inference_frame)
         print(f"[{now}]> Save result as image [SUCCESS]")
-        result.save_txt(f"./vision/logs/labels/results.txt")
+        result.save_txt(f"{label_path}/results.txt")
 
         return filtered_json_list
 
     else:
         print(f"[{now}]> No prediction")
         # Save frame
-        cv2.imwrite(f'./vision/logs/images/{now} None.jpg', inference_frame)
+        cv2.imwrite(f'{img_path}/{now} None.jpg', inference_frame)
         print(f"[{now}]> Save None result as image [SUCCESS]")
 
         return []
