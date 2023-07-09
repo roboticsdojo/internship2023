@@ -1,3 +1,4 @@
 robot_software/venv/
 robot_vision_v1/venv/
 __pycache__/
+.vscode/
