@@ -37,11 +37,12 @@ def infer(img: str):
     inference_frame = annotator.result()
     inference_win = 'YOLO V8 Inference Result'
     # Re-position Window
-    cv2.namedWindow(inference_win)
-    cv2.moveWindow(inference_win, 640, 0)
-    cv2.imshow(inference_win, inference_frame)
-    if cv2.waitKey(1) == ord('q'):
-        cv2.destroyAllWindows()
+    # cv2.namedWindow(inference_win)
+    # cv2.moveWindow(inference_win, 640, 0)
+    # cv2.imshow(inference_win, inference_frame)
+
+    # if cv2.waitKey(1) == ord('q'):
+    #     cv2.destroyAllWindows()
 
     #! ---------------------------------------------------------
 
