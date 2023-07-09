@@ -14,11 +14,13 @@ print("\n------------\nInitializing Raspberry Pi...")
 
 # Initialize Logger
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 # create handler
-log_handler = logging.FileHandler("./vision/logs/run.log")
-log_handler.setLevel(logging.DEBUG)
+log_handler = logging.FileHandler("./vision/logs/run.log", "a")
+# log_handler.setLevel(logging.DEBUG)
 # create formatter
-log_format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+log_format = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 log_handler.setFormatter(log_format)
 # Add handler to logger
 logger.addHandler(log_handler)
@@ -37,8 +39,8 @@ print("Camera Initialized Successfully")
 # Setup Serial Communication
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 ser.reset_input_buffer()
-logger.info("Serial Communication Initialized Successfully")
-print("Serial Communication Initialized Successfully")
+logger.info("Serial Initialized Successfully")
+print("Serial Initialized Successfully")
 
 # Setup GPIO
 pick_pin = 23
@@ -171,7 +173,6 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
 
     logger.debug(f"Received arm_msg: {arm_msg}")
     print(f"Received arm_msg: {arm_msg}")
-    
 
     # 6. If message is SUCCESS, send GPIO.Go to Mobile-Platform
     if arm_msg == "SUCCESS":
@@ -242,7 +243,8 @@ try:
             # TODO: Use interrupts instead of polling -> Remove unnecessary delays
             time.sleep(2)
             pick_event = GPIO.input(pick_pin)
-            logger.debug(f"Pick event: {pick_event} Place event: {place_event}")
+            logger.debug(
+                f"Pick event: {pick_event} Place event: {place_event}")
             print(f"Pick event: {pick_event} Place event: {place_event}")
 
             print("\n---------\n")

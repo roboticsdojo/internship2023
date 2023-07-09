@@ -1,0 +1,57 @@
+2023-07-09 23:03:53,982 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 199, in <module>
+    time.sleep(0.2)
+KeyboardInterrupt
+2023-07-09 23:06:46,180 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 199, in <module>
+    time.sleep(0.2)
+KeyboardInterrupt
+2023-07-09 23:08:48,608 - __main__ - INFO - Logger Initialized Successfully
+2023-07-09 23:08:48,623 - __main__ - INFO - Camera Initialized Successfully
+2023-07-09 23:08:48,627 - __main__ - INFO - Serial Initialized Successfully
+2023-07-09 23:08:48,628 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-09 23:08:48,629 - __main__ - INFO - Raspberry Pi Ready
+2023-07-09 23:08:48,630 - __main__ - INFO - Awaiting kbd-event to start Cycle...
+2023-07-09 23:08:58,495 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:08:58,696 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:08:58,897 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:08:59,098 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:08:59,299 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:08:59,500 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:08:59,702 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-09 23:08:59,702 - __main__ - INFO - Pick event
+2023-07-09 23:08:59,703 - __main__ - INFO - Inferring on snapshot...
+2023-07-09 23:09:02,852 - __main__ - DEBUG - Inference Result: [{'x1': 77.84268188476562, 'y1': 270.36578369140625, 'x2': 380.1985778808594, 'y2': 497.67523193359375}]
+2023-07-09 23:09:02,853 - __main__ - DEBUG - Centroids: [(228, 383)]
+2023-07-09 23:09:02,853 - __main__ - INFO - Arm Communication Initiated...
+2023-07-09 23:09:02,854 - __main__ - DEBUG - Pick Command
+2023-07-09 23:09:02,854 - __main__ - DEBUG - Sending formatted_msg: 0|30|200|50
+
+2023-07-09 23:09:03,856 - __main__ - DEBUG - Waiting for Arm message
+2023-07-09 23:09:04,863 - __main__ - DEBUG - Waiting for Arm message
+2023-07-09 23:09:05,864 - __main__ - DEBUG - Waiting for Arm message
+2023-07-09 23:09:06,866 - __main__ - DEBUG - Waiting for Arm message
+2023-07-09 23:09:07,868 - __main__ - DEBUG - Waiting for Arm message
+2023-07-09 23:09:08,870 - __main__ - DEBUG - Waiting for Arm message
+2023-07-09 23:09:09,090 - __main__ - DEBUG - Received arm_msg: 3020050
+2023-07-09 23:09:10,092 - __main__ - INFO - Arm Sequence Complete
+2023-07-09 23:09:10,093 - __main__ - INFO - Mobile Platform Go
+2023-07-09 23:09:12,095 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:12,096 - __main__ - INFO - EVENT CYCLE COMPLETE
+2023-07-09 23:09:12,298 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:12,499 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:12,700 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:12,901 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:13,102 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:13,303 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:13,504 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:13,706 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:13,907 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-09 23:09:13,989 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 200, in <module>
+    time.sleep(0.2)
+KeyboardInterrupt
+2023-07-09 23:09:14,004 - __main__ - INFO - Program Terminated Gracefully
