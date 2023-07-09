@@ -2,10 +2,12 @@ from vision.cam_to_world.cam_to_world import get_world_cooridinates_final
 from vision.model_inference import infer
 # from datetime import datetime
 import RPi.GPIO as GPIO
-# import serial
+import serial
 import time
 import cv2
 
+
+# TODO: Remove intentional block used during development
 
 print("\n------------\nInitializing Raspberry Pi...")
 
@@ -17,8 +19,9 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
 print("Camera Initialized Successfully")
 
 # Setup Serial Communication
-# ser = serial.Serial('/dev/ttyACM2', 9600, timeout=1)
-# ser.reset_input_buffer()
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+ser.reset_input_buffer()
+print("Serial Communication Initialized Successfully")
 
 # Setup GPIO
 pick_pin = 23
@@ -86,7 +89,8 @@ def snap_infer():
     return inference_result
 
 
-def arm_comms_simulator(gpio_pick: int = 0, gpio_place: int = 0):
+def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
+    print("\nArm Communication Initiated...")
     # * Pi - Arduino Arm Communication
     # 1. Pi polls GPIO for event from Mobile-Platform
     # 2. If GPIO.Pick is detected, run camera_inference function
@@ -98,58 +102,62 @@ def arm_comms_simulator(gpio_pick: int = 0, gpio_place: int = 0):
     # 8. Mobile-Platform pulls GPIO.Pick low
     # ? 9. Pi pulls GPIO.Go low (for next cycle)
 
-    while True:
-        # 2. If GPIO.Pick is detected, run camera_inference function
-        if gpio_pick == 1:
-            print("GPIO.Pick detected")
+    # while True:
+    # 2. If GPIO.Pick is detected, run camera_inference function
+    if gpio_pick == 1:
+        print("Pick Command")
 
-            # 3. Get coordinates from camera_inference function
-            coordinate_string = camera_inference()
-            print(f"coordinate_string: {coordinate_string}")
+        # # 3. Get coordinates from camera_inference function
+        # coordinate_string = camera_inference()
+        # print(f"coordinate_string: {coordinate_string}")
 
-            # 4. Pass the action + coordinates via serial to Arm
-            action = 0  # 0 = Pick, 1 = Place
+        # 4. Pass the action + coordinates via serial to Arm
+        action = 0  # 0 = Pick, 1 = Place
 
-            # Format message to send to Arm
-            formatted_msg = f"{action}|{coordinate_string[0]}|{coordinate_string[1]}|{coordinate_string[2]}\n"
-            print(f"Sending formatted_msg: {formatted_msg}")
+        # Format message to send to Arm
+        point = coordinates[0]
+        formatted_msg = f"{action}|{point[0]}|{point[1]}|{point[2]}\n"
+        print(f"Sending formatted_msg: {formatted_msg}")
 
-            # Send message to Arm
-            # ser.flushInput()
-            # ser.write(formatted_msg.encode('utf-8'))
-            # 5. Arm executes action -> Await message from Arm
+        # Send message to Arm
+        ser.flushInput()
+        ser.write(formatted_msg.encode('utf-8'))
+        # 5. Arm executes action -> Await message from Arm
 
-        # 5. Arm executes action -> # Await message from Arm
-        # ser.flushInput()
-        # ser.flushOutput()
-        # readall = ser.read_all()
-        # print(readall)
-        # arm_msg = ser.readline().decode('utf-8').rstrip()
-        # if arm_msg:
-        #     print(f"Received arm_msg: {arm_msg}")
-        # else:
-        #     print("Waiting for Arm message")
+    # 5. Arm executes action -> # Await message from Arm
+    ser.flushInput()
+    ser.flushOutput()
+    readall = ser.read_all()
+    print(readall)
+    arm_msg = ser.readline().decode('utf-8').rstrip()
+    # if arm_msg:
+    #     print(f"Received arm_msg: {arm_msg}")
+    # else:
+    #     print("Waiting for Arm message")
 
-        # ? Await message from Arm
-        # while not arm_msg:
-        #     print("Waiting for Arm message")
-        #     arm_msg = ser.readline().decode('utf-8').rstrip()
+    # ? Await message from Arm
+    while not arm_msg:
+        print("Waiting for Arm message")
+        arm_msg = ser.readline().decode('utf-8').rstrip()
 
-        # print(f"Received arm_msg: {arm_msg}")
+    print(f"Received arm_msg: {arm_msg}")
 
-        # 6. If message is SUCCESS, send GPIO.Go to Mobile-Platform
-        # if arm_msg == "SUCCESS":
-        #     return 1
-
-            # ? Run Loop again
-            # break
-
-        time.sleep(1)
+    # 6. If message is SUCCESS, send GPIO.Go to Mobile-Platform
+    if arm_msg == "SUCCESS":
         return 1
 
+        # ? Run Loop again
+        # break
 
-# arm_comms_simulator(1)
+    time.sleep(1)
+    print("Arm Sequence Complete\n")
+    #! remove this
+    return 1
 
+
+# Add an intentional block for debugging purposes
+print("Press ENTER to start Cycle...")
+input()
 
 # * Super Loop
 try:
@@ -172,9 +180,10 @@ try:
         if pick_event:
             print("Pick event")
             world_coordinates = camera_inference()
-           
+
             if world_coordinates:
-                mobile_platform_event = 1
+                mobile_platform_event = arm_comms(
+                    gpio_pick=1, coordinates=world_coordinates)
             else:
                 print("No object detected! PANIC MODE!!!")
                 mobile_platform_event = 1
@@ -189,7 +198,7 @@ try:
             GPIO.output(go_pin, False)
             place_event = 0
             pick_event = 0
-            
+
             # 8. Mobile-Platform pulls GPIO.Pick or GPIO.Place low
             # give mobile platform time to pull GPIO low
             time.sleep(2)
