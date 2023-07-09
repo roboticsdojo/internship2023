@@ -2,6 +2,7 @@ from vision.cam_to_world.cam_to_world import get_world_cooridinates_final
 from vision.model_inference import infer
 # from datetime import datetime
 import RPi.GPIO as GPIO
+import logging
 import serial
 import time
 import cv2
@@ -11,16 +12,32 @@ import cv2
 
 print("\n------------\nInitializing Raspberry Pi...")
 
+# Initialize Logger
+logger = logging.getLogger(__name__)
+# create handler
+log_handler = logging.FileHandler("./vision/logs/run.log")
+log_handler.setLevel(logging.DEBUG)
+# create formatter
+log_format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+log_handler.setFormatter(log_format)
+# Add handler to logger
+logger.addHandler(log_handler)
+logger.info("Logger Initialized Successfully")
+print("Logger Initialized Successfully")
+
+
 # Initialize Camera
 cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)
 FRAME_WIDTH, FRAME_HEIGHT = 640, 640
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_WIDTH)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
+logger.info("Camera Initialized Successfully")
 print("Camera Initialized Successfully")
 
 # Setup Serial Communication
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 ser.reset_input_buffer()
+logger.info("Serial Communication Initialized Successfully")
 print("Serial Communication Initialized Successfully")
 
 # Setup GPIO
@@ -35,18 +52,23 @@ GPIO.setup(go_pin, GPIO.OUT)
 # Avoid floating state by attaching input pins to internal pulldown resistors
 GPIO.setup(pick_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(place_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+logger.info("GPIO Initialized Successfully")
 print("GPIO Initialized Successfully")
+logger.info("Raspberry Pi Ready")
 print("Raspberry Pi Ready\n------------\n")
 
 
 def camera_inference():
 
     print("\nInferring on snapshot...")
+    logger.info("Inferring on snapshot...")
     inference_result = snap_infer()
+    logger.debug(f"Inference Result: {inference_result}")
     print(f"\nInference Result: {inference_result}")
 
     if inference_result:
         centroids = get_centroids(inference_result)
+        logger.debug(f"Centroids: {centroids}")
         print(f"Centroids: {centroids}")
 
         print("\nResolving World Coordinate...")
@@ -56,6 +78,7 @@ def camera_inference():
 
     else:
         # TODO: Implement retry logic
+        logger.warning("No object detected! Retrying")
         print("No object detected! Retrying")
         return []
 
@@ -82,6 +105,7 @@ def snap_infer():
 
     # TODO: Add error handling
     if not ret:
+        logger.error("Failed to Read Camera Frame")
         print("Failed to Read Camera Frame")
 
     inference_result = infer(flipped_frame)
@@ -91,6 +115,7 @@ def snap_infer():
 
 def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
     print("\nArm Communication Initiated...")
+    logger.info("Arm Communication Initiated...")
     # * Pi - Arduino Arm Communication
     # 1. Pi polls GPIO for event from Mobile-Platform
     # 2. If GPIO.Pick is detected, run camera_inference function
@@ -106,6 +131,7 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
     # 2. If GPIO.Pick is detected, run camera_inference function
     if gpio_pick == 1:
         print("Pick Command")
+        logger.debug("Pick Command")
 
         # # 3. Get coordinates from camera_inference function
         # coordinate_string = camera_inference()
@@ -117,6 +143,7 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
         # Format message to send to Arm
         point = coordinates[0]
         formatted_msg = f"{action}|{point[0]}|{point[1]}|{point[2]}\n"
+        logger.debug(f"Sending formatted_msg: {formatted_msg}")
         print(f"Sending formatted_msg: {formatted_msg}")
 
         # Send message to Arm
@@ -136,11 +163,15 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
     #     print("Waiting for Arm message")
 
     # ? Await message from Arm
+    # ? Use interrupts instead of polling
     while not arm_msg:
+        logger.debug("Waiting for Arm message")
         print("Waiting for Arm message")
         arm_msg = ser.readline().decode('utf-8').rstrip()
 
+    logger.debug(f"Received arm_msg: {arm_msg}")
     print(f"Received arm_msg: {arm_msg}")
+    
 
     # 6. If message is SUCCESS, send GPIO.Go to Mobile-Platform
     if arm_msg == "SUCCESS":
@@ -150,6 +181,7 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
         # break
 
     time.sleep(1)
+    logger.info("Arm Sequence Complete")
     print("Arm Sequence Complete\n")
     #! remove this
     return 1
@@ -157,9 +189,11 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
 
 # Add an intentional block for debugging purposes
 print("Press ENTER to start Cycle...")
+logger.info("Awaiting kbd-event to start Cycle...")
 input()
 
 # * Super Loop
+# TODO: Use interrupts instead of polling
 try:
     while True:
         time.sleep(0.2)
@@ -177,8 +211,10 @@ try:
         # 2. If GPIO.23 is high, action = Pick
         # print(readall)
         print(f"Pick event: {pick_event} Place event: {place_event}")
+        logger.debug(f"Pick event: {pick_event} Place event: {place_event}")
         if pick_event:
             print("Pick event")
+            logger.info("Pick event")
             world_coordinates = camera_inference()
 
             if world_coordinates:
@@ -186,6 +222,7 @@ try:
                     gpio_pick=1, coordinates=world_coordinates)
             else:
                 print("No object detected! PANIC MODE!!!")
+                logger.warning("No object detected! PANIC MODE!!!")
                 mobile_platform_event = 1
 
         # 3. If GPIO.24 is high, action = Place
@@ -195,14 +232,17 @@ try:
 
         if mobile_platform_event:
             print("Mobile Platform Go")
+            logger.info("Mobile Platform Go")
             GPIO.output(go_pin, False)
             place_event = 0
             pick_event = 0
 
             # 8. Mobile-Platform pulls GPIO.Pick or GPIO.Place low
             # give mobile platform time to pull GPIO low
+            # TODO: Use interrupts instead of polling -> Remove unnecessary delays
             time.sleep(2)
             pick_event = GPIO.input(pick_pin)
+            logger.debug(f"Pick event: {pick_event} Place event: {place_event}")
             print(f"Pick event: {pick_event} Place event: {place_event}")
 
             print("\n---------\n")
@@ -212,16 +252,20 @@ try:
             if not pick_event:
                 GPIO.output(go_pin, True)
                 mobile_platform_event = 0
+                logger.info("EVENT CYCLE COMPLETE")
                 print("EVENT CYCLE COMPLETE")
                 print("\n---------------------------------------\n")
 
 except KeyboardInterrupt:
     print("Keyboard Interrupt")
+    logger.exception("Keyboard Interrupt")
 except Exception as e:
     print(f"Unexpected Error: {e}")
+    logger.exception(f"Unexpected Error: {e}")
 finally:
 
     cap.release()
     GPIO.cleanup()
 
+    logger.info("Program Terminated Gracefully")
     print("\n++++++++\nProgram Terminated Gracefully\n++++++++\n")
