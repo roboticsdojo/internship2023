@@ -396,13 +396,14 @@ void customDelay(unsigned long milliseconds, bool pickOrDrop)
 
   if (pickOrDrop) {
       while (true) {
+        setGyroReadings();
         digitalWrite(PICKPIN, HIGH);
         digitalWrite(DEBUGPIN, HIGH);
         // poll continue pin
         continueToNextState = digitalRead(CONTINUEPIN);
+        // break if continuepin goes high
         if (continueToNextState == LOW)
           break;
-        // break if continuepin goes high
       }
 
       digitalWrite(PICKPIN, LOW);
