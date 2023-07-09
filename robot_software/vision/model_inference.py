@@ -6,13 +6,12 @@ import cv2
 import json
 
 
-# Create directories for image and label logging
-# date_today = datetime.today().strftime('%Y-%m-%d')
+# Directories for image and label logging
 date_today = date.today()
 img_path = f"./vision/logs/{date_today}/images"
 label_path = f"./vision/logs/{date_today}/labels"
-Path(img_path).mkdir(parents=True, exist_ok=True)
-Path(label_path).mkdir(parents=True, exist_ok=True)
+# Path(img_path).mkdir(parents=True, exist_ok=True)
+# Path(label_path).mkdir(parents=True, exist_ok=True)
 
 
 # TODO: Replace print with logging.debug

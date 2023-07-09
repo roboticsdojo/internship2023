@@ -1,6 +1,7 @@
 from vision.cam_to_world.cam_to_world import get_world_cooridinates_final
 from vision.model_inference import infer
-# from datetime import datetime
+from datetime import date
+from pathlib import Path
 import RPi.GPIO as GPIO
 import logging
 import serial
@@ -12,11 +13,23 @@ import cv2
 
 print("\n------------\nInitializing Raspberry Pi...")
 
+# Create logging directory
+date_today = date.today()
+time_now = time.strftime("%H:%M:%S", time.localtime())
+print(f"Date: {date_today}, Time: {time_now}")
+log_path = f"./vision/logs/{date_today}/runs"
+img_path = f"./vision/logs/{date_today}/images"
+label_path = f"./vision/logs/{date_today}/labels"
+Path(log_path).mkdir(parents=True, exist_ok=True)
+Path(img_path).mkdir(parents=True, exist_ok=True)
+Path(label_path).mkdir(parents=True, exist_ok=True)
+
+
 # Initialize Logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 # create handler
-log_handler = logging.FileHandler("./vision/logs/run.log", "a")
+log_handler = logging.FileHandler(f"{log_path}/{time_now}.log", "a")
 # log_handler.setLevel(logging.DEBUG)
 # create formatter
 log_format = logging.Formatter(
