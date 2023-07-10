@@ -59,20 +59,6 @@ void setup()
   j4Servo.write(90);
   rampToAngle(90, 90, 90, 90, 1000, true);
 
-  // delay (2000);
-
-  // while (true) {
-  //   moveToPos(0, 100, 0);
-  //   gServo.write(0);
-  //   delay(1000);
-  //   gServo.write(90);
-  //   delay(1000);
-  //   // delay(1000);
-  //   moveToPos(0, 200, 200);
-  //   delay(1000);
-  // }
-
-  // delay(2000);  // Wait for movement to complete
 }
 
 void loop()
@@ -80,13 +66,8 @@ void loop()
    // 1. Poll Serial for information
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
-    // String data = "0|10|20|30\n";
-    // Serial.print("[Arduino Rx]> ");
-    // Serial.print(data);
-    // Serial.println();
 
     // 2. Determine whether to pick or place from message
-
     // Message Format
     // "action|x|y|z" -> "0|10|20|30"
 
@@ -96,18 +77,6 @@ void loop()
     String x_coord = getValue(data,'|',1);
     String y_coord = getValue(data,'|',2);
     String z_coord = getValue(data,'|',3);
-
-    // Serial.print("Parsed Message: ");
-    // Serial.print(action);
-    // Serial.print(" ");
-    // Serial.print(x_coord);
-    // Serial.print(" ");
-    // Serial.print(y_coord);
-    // Serial.print(" ");
-    // Serial.print(z_coord);
-    // Serial.println();
-
-  
 
   // typecast action to int
   int a = action.toInt();
@@ -150,27 +119,16 @@ void loop()
 
 int moveToPos(double x, double y, double z)
 {
-  // Serial.println("Values of x , y , z :");
-   
- 
-  //  Serial.print(x);
-  //  Serial.print(" ");
-  //  Serial.print(y);
-  //   Serial.print(" ");
-  //  Serial.println(z);
-  //   Serial.print(" ");
+  double pi = 3.141592653589793238462643383279502884197;
 
-   
-    double pi = 3.141592653589793238462643383279502884197;
-
-     // z= z  50; 
-    // y = y - 80;
+  // z= z  50; 
+  // y = y - 80;
   double l1 = 180.00; 
   double l2 = 120.00;
   double Ls = 350;
   //cosine rule 
   double q2 = PI -  acos ( ( (l1 * l1) + (l2 * l2 ) - (x * x ) - (y * y) ) / (2 * l1 * l2) ); //* 180 / 3.142;
- double q21 = round(acos ( ((x *x ) + (y * y ) - (l1 * l1) - (l2 * l2)) / (2 * l1 * l2 ))); 
+  double q21 = round(acos ( ((x *x ) + (y * y ) - (l1 * l1) - (l2 * l2)) / (2 * l1 * l2 ))); 
 
   double l = round(sqrt(x * x + y * y)); // x and y extension
 
@@ -210,8 +168,8 @@ int moveToPos(double x, double y, double z)
   //moveServo(q2, j3Servo);
   // Serial.println(theta);
   // snail(theta,j1Servo); ///////
- // moveServo(theta, j1Servo);
-  delay(200);
+  // moveServo(theta, j1Servo);
+  // delay(200);
   // if (z == 0)
   //moveServo(-(90 - a1), j2Servo);
 
@@ -221,7 +179,7 @@ int moveToPos(double x, double y, double z)
   q1 = q1 + 13;
   // snail(q1, j2Servo); //////
  // moveServo(q1, j2Servo);
-  delay(200);
+  // delay(200);
   rampToAngle(theta, q1, degrees(q2), 180, 800);
 
   return 1;
