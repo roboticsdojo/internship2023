@@ -1,0 +1,19 @@
+2023-07-10 11:48:47,945 - __main__ - INFO - Logger Initialized Successfully
+2023-07-10 11:48:47,956 - __main__ - INFO - Camera Initialized Successfully
+2023-07-10 11:48:47,958 - __main__ - INFO - Serial Initialized Successfully
+2023-07-10 11:48:47,959 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-10 11:48:47,959 - __main__ - INFO - Raspberry Pi Ready
+2023-07-10 11:48:47,959 - __main__ - INFO - Awaiting kbd-event to start Cycle...
+2023-07-10 11:49:20,336 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-10 11:49:20,336 - __main__ - INFO - Pick event
+2023-07-10 11:49:20,337 - __main__ - INFO - Inferring on snapshot...
+2023-07-10 11:49:23,465 - __main__ - DEBUG - Inference Result: []
+2023-07-10 11:49:23,465 - __main__ - WARNING - No object detected! Retrying
+2023-07-10 11:49:23,465 - __main__ - WARNING - No object detected! PANIC MODE!!!
+2023-07-10 11:49:23,466 - __main__ - INFO - Mobile Platform Go
+2023-07-10 11:49:24,651 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 257, in <module>
+    time.sleep(2)
+KeyboardInterrupt
+2023-07-10 11:49:24,669 - __main__ - INFO - Program Terminated Gracefully

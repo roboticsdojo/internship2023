@@ -1,0 +1,50 @@
+2023-07-10 21:23:40,162 - __main__ - INFO - Logger Initialized Successfully
+2023-07-10 21:23:40,172 - __main__ - INFO - Camera Initialized Successfully
+2023-07-10 21:23:40,175 - __main__ - INFO - Serial Initialized Successfully
+2023-07-10 21:23:40,175 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-10 21:23:40,175 - __main__ - INFO - Raspberry Pi Ready
+2023-07-10 21:23:40,175 - __main__ - INFO - Awaiting kbd-event to start Cycle...
+2023-07-10 21:23:41,997 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:42,199 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:42,400 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:42,601 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:42,802 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:43,003 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:43,204 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:43,405 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:43,606 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:43,807 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:44,008 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:44,209 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-10 21:23:44,410 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-10 21:23:44,411 - __main__ - INFO - Pick event
+2023-07-10 21:23:44,411 - __main__ - INFO - Inferring on snapshot...
+2023-07-10 21:23:47,435 - __main__ - DEBUG - Inference Result: [{'x1': 172.25048828125, 'y1': 364.289794921875, 'x2': 518.2953491210938, 'y2': 633.0914306640625}]
+2023-07-10 21:23:47,435 - __main__ - DEBUG - Centroids: [(345, 498)]
+2023-07-10 21:23:47,436 - __main__ - INFO - Arm Communication Initiated...
+2023-07-10 21:23:47,436 - __main__ - DEBUG - Pick Command
+2023-07-10 21:23:47,436 - __main__ - DEBUG - Sending formatted_msg: 0|0|200|10
+
+2023-07-10 21:23:48,438 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:49,440 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:50,442 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:51,444 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:52,446 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:53,448 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:54,450 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:55,452 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:56,454 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:57,456 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:58,458 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:23:59,460 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:24:00,462 - __main__ - DEBUG - Waiting for Arm message
+2023-07-10 21:24:00,742 - __main__ - ERROR - Unexpected Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 235, in <module>
+    mobile_platform_event = arm_comms(
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 185, in arm_comms
+    arm_msg = ser.readline().decode('utf-8').rstrip()
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/serial/serialposix.py", line 595, in read
+    raise SerialException(
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+2023-07-10 21:24:00,763 - __main__ - INFO - Program Terminated Gracefully
