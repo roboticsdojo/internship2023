@@ -1,0 +1,6 @@
+2023-07-11 12:02:18,124 - __main__ - INFO - Logger Initialized Successfully
+2023-07-11 12:02:18,136 - __main__ - INFO - Camera Initialized Successfully
+2023-07-11 12:02:18,140 - __main__ - INFO - Serial Initialized Successfully
+2023-07-11 12:02:18,141 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-11 12:02:18,141 - __main__ - INFO - Raspberry Pi Ready
+2023-07-11 12:02:18,142 - __main__ - INFO - Awaiting kbd-event to start Cycle...
