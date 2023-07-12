@@ -518,9 +518,9 @@ void moveDistance(double distance_cm, bool detectLine = false)
     }
 
     // Reads black line and stop.
-    // For white line, invert the values.
-    // eg. if (detectLine && (analogRead(LEFT_SENSOR) < 150 || analogRead(RIGHT_SENSOR) < 150))
-    if (detectLine && (analogRead(LEFT_SENSOR) > 650 || analogRead(RIGHT_SENSOR) > 650))
+    // if (detectLine && (analogRead(LEFT_SENSOR) > 650 || analogRead(RIGHT_SENSOR) > 650))
+    
+    if (detectLine && (analogRead(LEFT_SENSOR) < 150 || analogRead(RIGHT_SENSOR) < 150)) // For white line, invert the values.
     {
       break;
     }
