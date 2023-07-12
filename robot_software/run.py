@@ -85,9 +85,13 @@ def camera_inference():
         centroids = get_centroids(inference_result)
         logger.debug(f"Centroids: {centroids}")
         print(f"Centroids: {centroids}")
+        
+        widths = get_object_width(inference_result)
+        logger.debug(f"Object widths: {widths}")
+        print(f"Object widths: {widths}")
 
         print("\nResolving World Coordinate...")
-        world_coordinates = get_world_cooridinates_final(centroids)
+        world_coordinates = get_world_cooridinates_final(centroids, widths)
 
         return world_coordinates
 
@@ -112,6 +116,20 @@ def get_centroids(coordinates: list):
         centroids.append((x, y))
 
     return centroids
+
+
+def get_object_width(coordinates: list):
+    widths = []
+
+    for coordinate in coordinates:
+        x1 = int(coordinate['x1'])
+        x2 = int(coordinate['x2'])
+
+        width = x2 - x1
+        widths.append(width)
+
+    return widths
+
 
 
 def snap_infer():
