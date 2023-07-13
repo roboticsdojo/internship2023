@@ -56,21 +56,59 @@ logger.info("Serial Initialized Successfully")
 print("Serial Initialized Successfully")
 
 # Setup GPIO
+red_led = 26
+green_led = 19
+blue_led = 13
 pick_pin = 23
 place_pin = 24
 go_pin = 25
 
+
 mobile_platform_event = 0
 
 GPIO.setmode(GPIO.BCM)
+GPIO.setup(red_led, GPIO.OUT)
+GPIO.setup(green_led, GPIO.OUT)
+GPIO.setup(blue_led, GPIO.OUT)
 GPIO.setup(go_pin, GPIO.OUT)
 # Avoid floating state by attaching input pins to internal pulldown resistors
 GPIO.setup(pick_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(place_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+GPIO.output(go_pin, True)
+GPIO.output(red_led, True)
+GPIO.output(green_led, False)
+GPIO.output(blue_led, False)
 logger.info("GPIO Initialized Successfully")
 print("GPIO Initialized Successfully")
 logger.info("Raspberry Pi Ready")
 print("Raspberry Pi Ready\n------------\n")
+
+
+logger.info("Intializing Go Command to Mobile Platform")
+print("Intializing Go Command to Mobile Platform")
+counter = 3
+for i in range(3):
+    time.sleep(1)
+    print(f"Waiting: {counter}")
+    counter -= 1
+
+
+GPIO.output(go_pin, False)
+
+# try:
+#     while True:
+#         GPIO.output(go_pin, False)
+#         print(GPIO.input(pick_pin))
+# finally:
+
+#     cap.release()
+
+#     GPIO.output(go_pin, True)
+#     GPIO.output(red_led, False)
+#     GPIO.output(blue_led, False)
+#     GPIO.output(green_led, False)
+#     GPIO.cleanup()
 
 
 def camera_inference():
@@ -85,7 +123,7 @@ def camera_inference():
         centroids = get_centroids(inference_result)
         logger.debug(f"Centroids: {centroids}")
         print(f"Centroids: {centroids}")
-        
+
         widths = get_object_width(inference_result)
         logger.debug(f"Object widths: {widths}")
         print(f"Object widths: {widths}")
@@ -129,7 +167,6 @@ def get_object_width(coordinates: list):
         widths.append(width)
 
     return widths
-
 
 
 def snap_infer():
@@ -220,13 +257,29 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
 
 
 # Add an intentional block for debugging purposes
-print("Press ENTER to start Cycle...")
-logger.info("Awaiting kbd-event to start Cycle...")
-input()
+# print("Press ENTER to start Cycle...")
+# logger.info("Awaiting kbd-event to start Cycle...")
+# input()
 
-# * Super Loop
-# TODO: Use interrupts instead of polling
 try:
+    pick_event = GPIO.input(pick_pin)
+    # place_event = GPIO.input(place_pin)
+    while pick_event:
+        print("Noise from power on!")
+        logger.debug("Noise from power on!")
+        pick_event = GPIO.input(pick_pin)
+        GPIO.output(go_pin, True)
+        if not pick_event:
+            break
+        # place_event = GPIO.input(place_pin)
+        time.sleep(0.25)
+
+    print("\n*** Starting Cycle ^_^\n")
+    logger.debug("*** Starting Cycle ^_^")
+
+    # * Super Loop
+    # TODO: Use interrupts instead of polling
+
     while True:
         time.sleep(0.2)
 
@@ -238,13 +291,22 @@ try:
         # 1. Pi Polls GPIO for event from Mobile-Platform
         pick_event = GPIO.input(pick_pin)
         place_event = GPIO.input(place_pin)
+        # while pick_event != 0 or pick_event != 0:
+        #     print("Noise from power on!")
+        #     logger.debug("Noise from power on!")
+
         GPIO.output(go_pin, True)
+        GPIO.output(red_led, False)
+        GPIO.output(green_led, True)
 
         # 2. If GPIO.23 is high, action = Pick
         # print(readall)
         print(f"Pick event: {pick_event} Place event: {place_event}")
         logger.debug(f"Pick event: {pick_event} Place event: {place_event}")
         if pick_event:
+            # GPIO.output(go_pin, True)
+            GPIO.output(blue_led, True)
+            GPIO.output(green_led, False)
             print("Pick event")
             logger.info("Pick event")
             world_coordinates = camera_inference()
@@ -266,6 +328,8 @@ try:
             print("Mobile Platform Go")
             logger.info("Mobile Platform Go")
             GPIO.output(go_pin, False)
+            GPIO.output(blue_led, False)
+            GPIO.output(green_led, True)
             place_event = 0
             pick_event = 0
 
@@ -284,6 +348,8 @@ try:
             # 9. Pi pulls GPIO.Go low (for next cycle)
             if not pick_event:
                 GPIO.output(go_pin, True)
+                GPIO.output(blue_led, False)
+                GPIO.output(green_led, True)
                 mobile_platform_event = 0
                 logger.info("EVENT CYCLE COMPLETE")
                 print("EVENT CYCLE COMPLETE")
@@ -298,6 +364,11 @@ except Exception as e:
 finally:
 
     cap.release()
+
+    GPIO.output(go_pin, True)
+    GPIO.output(red_led, False)
+    GPIO.output(blue_led, False)
+    GPIO.output(green_led, False)
     GPIO.cleanup()
 
     logger.info("Program Terminated Gracefully")
