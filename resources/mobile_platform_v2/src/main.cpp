@@ -173,7 +173,7 @@ void loop()
   case PICK_TRAILER:
     rotateToAngle(0, 10);
     customDelay(100);
-    // moveDistance(185);
+    moveDistance(100, true);
     moveCar(240, 240);
     customDelay(6000);
     moveCar(0, 0);
@@ -446,8 +446,7 @@ void moveCar(int speedLeft, int speedRight)
   analogWrite(ENABLE_RIGHT_MOTOR, speedRight); // control speed of right motor
 }
 
-void moveDistance(double distance_cm, bool detectLine = false)
-{
+void moveDistance(double distance_cm, bool detectLine = false){
   // Reset PID values
   integral = 0;
   previous_error = 0;
@@ -518,9 +517,9 @@ void moveDistance(double distance_cm, bool detectLine = false)
     }
 
     // Reads black line and stop.
-    // if (detectLine && (analogRead(LEFT_SENSOR) > 650 || analogRead(RIGHT_SENSOR) > 650))
-    
-    if (detectLine && (analogRead(LEFT_SENSOR) < 150 || analogRead(RIGHT_SENSOR) < 150)) // For white line, invert the values.
+    // For white line, invert the values.
+    //if (detectLine && (analogRead(LEFT_SENSOR) > 650 || analogRead(RIGHT_SENSOR) > 650))
+    if (detectLine && (analogRead(LEFT_SENSOR) < 150 || analogRead(RIGHT_SENSOR) < 150))
     {
       break;
     }
