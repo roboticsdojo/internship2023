@@ -1,0 +1,81 @@
+2023-07-13 23:04:36,935 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 23:04:36,945 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 23:04:36,948 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 23:04:36,949 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 23:04:36,949 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 23:04:36,949 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 23:04:41,956 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 23:04:42,157 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:42,358 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:42,560 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:42,761 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:42,962 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:43,163 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:43,364 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:43,565 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:43,766 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:43,967 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:44,168 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 23:04:44,169 - __main__ - INFO - Pick event
+2023-07-13 23:04:44,170 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 23:04:49,268 - __main__ - DEBUG - Inference Result: [{'x1': 235.880615234375, 'y1': 379.72283935546875, 'x2': 390.10748291015625, 'y2': 543.1027221679688}]
+2023-07-13 23:04:49,269 - __main__ - DEBUG - Centroids: [(312, 461)]
+2023-07-13 23:04:49,269 - __main__ - DEBUG - Object widths: [155]
+2023-07-13 23:04:49,270 - __main__ - INFO - Arm Communication Initiated...
+2023-07-13 23:04:49,270 - __main__ - DEBUG - Pick Command
+2023-07-13 23:04:49,270 - __main__ - DEBUG - Sending formatted_msg: 0|0|460.0|20
+
+2023-07-13 23:04:50,273 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:04:51,275 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:04:52,277 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:04:53,279 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:04:54,101 - __main__ - DEBUG - Received arm_msg: 046020
+2023-07-13 23:04:55,103 - __main__ - INFO - Arm Sequence Complete
+2023-07-13 23:04:55,104 - __main__ - INFO - Mobile Platform Go
+2023-07-13 23:04:57,107 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:57,107 - __main__ - INFO - EVENT CYCLE COMPLETE
+2023-07-13 23:04:57,308 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:57,509 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:57,710 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:57,911 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:58,112 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:58,314 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:58,515 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:58,716 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:58,917 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:59,118 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:59,319 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:59,520 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:04:59,722 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 23:04:59,722 - __main__ - INFO - Pick event
+2023-07-13 23:04:59,723 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 23:05:03,059 - __main__ - DEBUG - Inference Result: [{'x1': 222.73004150390625, 'y1': 494.2221984863281, 'x2': 367.941650390625, 'y2': 639.92578125}]
+2023-07-13 23:05:03,059 - __main__ - DEBUG - Centroids: [(294, 566)]
+2023-07-13 23:05:03,059 - __main__ - DEBUG - Object widths: [145]
+2023-07-13 23:05:03,060 - __main__ - INFO - Arm Communication Initiated...
+2023-07-13 23:05:03,060 - __main__ - DEBUG - Pick Command
+2023-07-13 23:05:03,060 - __main__ - DEBUG - Sending formatted_msg: 0|0|490.0|0
+
+2023-07-13 23:05:04,062 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:05:05,064 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:05:06,066 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:05:07,067 - __main__ - DEBUG - Waiting for Arm message
+2023-07-13 23:05:07,889 - __main__ - DEBUG - Received arm_msg: 04900
+2023-07-13 23:05:08,891 - __main__ - INFO - Arm Sequence Complete
+2023-07-13 23:05:08,892 - __main__ - INFO - Mobile Platform Go
+2023-07-13 23:05:10,894 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:10,895 - __main__ - INFO - EVENT CYCLE COMPLETE
+2023-07-13 23:05:11,096 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:11,298 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:11,499 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:11,700 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:11,901 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:12,102 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:12,303 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:12,504 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 23:05:12,595 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 294, in <module>
+    time.sleep(0.2)
+KeyboardInterrupt
+2023-07-13 23:05:12,616 - __main__ - INFO - Program Terminated Gracefully

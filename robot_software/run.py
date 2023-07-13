@@ -87,11 +87,15 @@ print("Raspberry Pi Ready\n------------\n")
 
 logger.info("Intializing Go Command to Mobile Platform")
 print("Intializing Go Command to Mobile Platform")
-counter = 3
-for i in range(3):
-    time.sleep(1)
+counter = 5
+for i in range(5):
+    
+    GPIO.output(red_led, True)
+    time.sleep(0.5)
     print(f"Waiting: {counter}")
     counter -= 1
+    GPIO.output(red_led, False)
+    time.sleep(0.5)
 
 
 GPIO.output(go_pin, False)
@@ -170,7 +174,14 @@ def get_object_width(coordinates: list):
 
 
 def snap_infer():
-    ret, frame = cap.read()
+    
+    # Clear image buffer / get latest frame
+    # https://stackoverflow.com/questions/46436587/opencv-python-not-updating-frame-when-read-is-called
+    for _ in range(60):
+        ret, frame = cap.read()
+        time.sleep(0.001)
+        
+    # ret, frame = cap.read()
     flipped_frame = cv2.flip(frame, -1)  # flip both axes
 
     # TODO: Add error handling
