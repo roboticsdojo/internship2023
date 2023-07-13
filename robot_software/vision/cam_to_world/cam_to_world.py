@@ -17,6 +17,10 @@ Y_AXIS_MIDPOINT_WORLD = X_AXIS_MIDPOINT_CAMERA
 Z_AXIS_MIDPOINT_WORLD = Y_AXIS_MIDPOINT_CAMERA
 
 
+FOCAL_LENGTH_TRAILER = 708.3333  # Trailer
+KNOWN_WIDTH_TRAILER = 10.2
+
+
 def get_world_coordinates(cameraCoordinates: list):
     world_coordinates = []
 
@@ -54,9 +58,17 @@ def resolve_world_coordinates(worldCoordinates: list):
     return world_coordinates
 
 
-def get_world_coordinates_3d(worldCoordinates: list):
+def distance_to_camera(knownWidth, focalLength, perWidth):
+    # compute and return the distance from the maker to the camera
+    return (knownWidth * focalLength) // perWidth
+
+
+def get_world_coordinates_3d(worldCoordinates: list, widths: list):
     world_coordinates = []
-    depth = 20
+
+    measured_width = widths[0]
+    depth = distance_to_camera(
+        KNOWN_WIDTH_TRAILER, FOCAL_LENGTH_TRAILER, measured_width)
 
     for coordinate in worldCoordinates:
 
@@ -69,14 +81,15 @@ def get_world_coordinates_3d(worldCoordinates: list):
     return world_coordinates
 
 
-def get_world_cooridinates_final(centroids: list):
+def get_world_cooridinates_final(centroids: list, widths: list):
     world_coordinates = get_world_coordinates(centroids)
     print(f"camera_world_coordinates: {world_coordinates}")
 
     resolved_world_coordinates = resolve_world_coordinates(world_coordinates)
     print(f"resolved_camera_world_coordinates: {resolved_world_coordinates}")
 
-    world_coordinates_3d = get_world_coordinates_3d(resolved_world_coordinates)
+    world_coordinates_3d = get_world_coordinates_3d(
+        resolved_world_coordinates, widths)
     print(f"3D_world_coordinates: {world_coordinates_3d}")
 
     return world_coordinates_3d

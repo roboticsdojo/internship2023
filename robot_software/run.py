@@ -73,6 +73,12 @@ logger.info("Raspberry Pi Ready")
 print("Raspberry Pi Ready\n------------\n")
 
 
+GPIO.output(go_pin, False)
+print("Instructing Mobile-Platform to Go")
+logger.info("Instructing Mobile-Platform to Go")
+print("Entering main event cycle\n------------\n")
+
+
 def camera_inference():
 
     print("\nInferring on snapshot...")
@@ -85,9 +91,13 @@ def camera_inference():
         centroids = get_centroids(inference_result)
         logger.debug(f"Centroids: {centroids}")
         print(f"Centroids: {centroids}")
+        
+        widths = get_object_width(inference_result)
+        logger.debug(f"Object widths: {widths}")
+        print(f"Object widths: {widths}")
 
         print("\nResolving World Coordinate...")
-        world_coordinates = get_world_cooridinates_final(centroids)
+        world_coordinates = get_world_cooridinates_final(centroids, widths)
 
         return world_coordinates
 
@@ -112,6 +122,20 @@ def get_centroids(coordinates: list):
         centroids.append((x, y))
 
     return centroids
+
+
+def get_object_width(coordinates: list):
+    widths = []
+
+    for coordinate in coordinates:
+        x1 = int(coordinate['x1'])
+        x2 = int(coordinate['x2'])
+
+        width = x2 - x1
+        widths.append(width)
+
+    return widths
+
 
 
 def snap_infer():
@@ -202,6 +226,7 @@ def arm_comms(gpio_pick: int = 0, gpio_place: int = 0, coordinates: list = []):
 
 
 # Add an intentional block for debugging purposes
+# TODO: Remove this given that startup sequence is complete
 print("Press ENTER to start Cycle...")
 logger.info("Awaiting kbd-event to start Cycle...")
 input()

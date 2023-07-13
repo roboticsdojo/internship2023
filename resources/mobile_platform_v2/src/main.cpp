@@ -161,6 +161,19 @@ void setup()
   digitalWrite(DEBUGPIN, LOW);
   digitalWrite(PICKPIN, LOW);
 
+  while (true) {
+    setGyroReadings();
+    customDelay(100);
+    Serial.println("waiting for Pi");
+    // poll continue pin
+    // break if continuepin goes high
+    if (digitalRead(CONTINUEPIN) == LOW)
+      break;
+  }
+
+  digitalWrite(DEBUGPIN, LOW);
+  digitalWrite(PICKPIN, LOW);
+
   //
   // while(true) 
   //   customDelay(100);
@@ -304,7 +317,7 @@ void loop()
     followLine(50);
     // getPinValue();
     // stopAtObjectLocation();
-    customDelay(2000);// wait to pick cabin
+    customDelay(2000, true);// wait to pick cabin
     
     state = BACK_TO_CHASIS;
     // state = STOP;
@@ -851,7 +864,8 @@ void followLine(int stopDistance, bool fastFollow)
     // Get the PID controller output
     double pidOutput = PIDControllerLine();
 
-    // Adjust the speeds
+    // Adjust the speeds 
+    // invert signs for white line on black
     currentSpeedRight = constrain(minSpeed + pidOutput, 0 , 254);
     currentSpeedLeft = constrain(minSpeed - pidOutput, 0, 254);
 
