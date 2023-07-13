@@ -1,0 +1,6 @@
+2023-07-13 13:02:48,976 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 13:02:48,988 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 13:02:48,991 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 13:02:48,992 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 13:02:48,992 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 13:02:48,992 - __main__ - INFO - Intializing Go Command to Mobile Platform

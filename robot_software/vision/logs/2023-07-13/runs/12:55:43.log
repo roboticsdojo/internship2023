@@ -1,0 +1,16 @@
+2023-07-13 12:55:43,327 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 12:55:43,339 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 12:55:43,342 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 12:55:43,343 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 12:55:43,343 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 12:55:43,344 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 12:55:46,347 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:47,348 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:48,350 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:49,352 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:50,268 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 252, in <module>
+    time.sleep(1)
+KeyboardInterrupt
+2023-07-13 12:55:50,270 - __main__ - INFO - Program Terminated Gracefully

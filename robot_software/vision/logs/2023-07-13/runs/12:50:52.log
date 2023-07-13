@@ -1,0 +1,123 @@
+2023-07-13 12:50:52,186 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 12:50:52,198 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 12:50:52,200 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 12:50:52,201 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 12:50:52,201 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 12:50:52,201 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 12:50:55,205 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 12:50:55,406 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:55,607 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:55,807 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,008 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,209 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,410 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,611 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,811 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,012 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,213 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,414 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,614 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,815 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,016 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,217 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,418 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,618 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,819 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:59,020 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:59,221 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:59,421 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:59,622 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:59,823 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:00,024 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:00,225 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:00,425 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:00,626 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:00,827 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:01,028 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:01,228 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:01,429 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:01,630 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:01,831 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:02,031 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:02,232 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:02,433 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:02,634 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:02,834 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:51:02,950 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 261, in <module>
+    time.sleep(0.2)
+KeyboardInterrupt
+2023-07-13 12:51:02,955 - __main__ - INFO - Program Terminated Gracefully
+2023-07-13 12:50:52,825 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 12:50:52,841 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 12:50:52,846 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 12:50:52,847 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 12:50:52,847 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 12:50:52,847 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 12:50:55,851 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 12:50:56,052 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,253 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,454 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,656 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:56,857 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,058 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,259 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,460 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,661 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:57,862 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,063 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,264 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 12:50:58,466 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 12:50:58,466 - __main__ - INFO - Pick event
+2023-07-13 12:50:58,467 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 12:51:01,044 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 312, in <module>
+    world_coordinates = camera_inference()
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 118, in camera_inference
+    inference_result = snap_infer()
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 181, in snap_infer
+    inference_result = infer(flipped_frame)
+  File "/home/lenny/dojo/internship2023/robot_software/vision/model_inference.py", line 31, in infer
+    result = model(img)[0]
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/model.py", line 111, in __call__
+    return self.predict(source, stream, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/model.py", line 255, in predict
+    return self.predictor.predict_cli(source=source) if is_cli else self.predictor(source=source, stream=stream)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/predictor.py", line 188, in __call__
+    return list(self.stream_inference(source, model))  # merge list of Result into one
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 35, in generator_context
+    response = gen.send(None)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/predictor.py", line 244, in stream_inference
+    preds = self.model(im, augment=self.args.augment, visualize=visualize)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/autobackend.py", line 314, in forward
+    y = self.model(im, augment=augment, visualize=visualize) if augment or visualize else self.model(im)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/tasks.py", line 45, in forward
+    return self.predict(x, *args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/tasks.py", line 62, in predict
+    return self._predict_once(x, profile, visualize)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/tasks.py", line 82, in _predict_once
+    x = m(x)  # run
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/modules/head.py", line 47, in forward
+    x[i] = torch.cat((self.cv2[i](x[i]), self.cv3[i](x[i])), 1)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 459, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+KeyboardInterrupt
+2023-07-13 12:51:01,084 - __main__ - INFO - Program Terminated Gracefully

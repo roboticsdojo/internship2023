@@ -1,0 +1,85 @@
+2023-07-13 13:00:55,197 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 13:00:55,209 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 13:00:55,213 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 13:00:55,214 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 13:00:55,214 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 13:00:55,214 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 13:00:58,218 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:00:58,219 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 13:00:58,419 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 13:00:58,420 - __main__ - INFO - Pick event
+2023-07-13 13:00:58,420 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 13:01:03,363 - __main__ - DEBUG - Inference Result: []
+2023-07-13 13:01:03,364 - __main__ - WARNING - No object detected! Retrying
+2023-07-13 13:01:03,365 - __main__ - WARNING - No object detected! PANIC MODE!!!
+2023-07-13 13:01:03,366 - __main__ - INFO - Mobile Platform Go
+2023-07-13 13:01:05,369 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 13:01:05,569 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 13:01:05,570 - __main__ - INFO - Pick event
+2023-07-13 13:01:05,570 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 13:01:07,880 - __main__ - DEBUG - Inference Result: []
+2023-07-13 13:01:07,880 - __main__ - WARNING - No object detected! Retrying
+2023-07-13 13:01:07,881 - __main__ - WARNING - No object detected! PANIC MODE!!!
+2023-07-13 13:01:07,881 - __main__ - INFO - Mobile Platform Go
+2023-07-13 13:01:09,884 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 13:01:10,084 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 13:01:10,085 - __main__ - INFO - Pick event
+2023-07-13 13:01:10,085 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 13:01:12,355 - __main__ - DEBUG - Inference Result: []
+2023-07-13 13:01:12,355 - __main__ - WARNING - No object detected! Retrying
+2023-07-13 13:01:12,356 - __main__ - WARNING - No object detected! PANIC MODE!!!
+2023-07-13 13:01:12,356 - __main__ - INFO - Mobile Platform Go
+2023-07-13 13:01:14,358 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 13:01:14,559 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 13:01:14,560 - __main__ - INFO - Pick event
+2023-07-13 13:01:14,560 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 13:01:15,513 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 296, in <module>
+    world_coordinates = camera_inference()
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 103, in camera_inference
+    inference_result = snap_infer()
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 166, in snap_infer
+    inference_result = infer(flipped_frame)
+  File "/home/lenny/dojo/internship2023/robot_software/vision/model_inference.py", line 31, in infer
+    result = model(img)[0]
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/model.py", line 111, in __call__
+    return self.predict(source, stream, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/model.py", line 255, in predict
+    return self.predictor.predict_cli(source=source) if is_cli else self.predictor(source=source, stream=stream)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/predictor.py", line 188, in __call__
+    return list(self.stream_inference(source, model))  # merge list of Result into one
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 35, in generator_context
+    response = gen.send(None)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/yolo/engine/predictor.py", line 244, in stream_inference
+    preds = self.model(im, augment=self.args.augment, visualize=visualize)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/autobackend.py", line 314, in forward
+    y = self.model(im, augment=augment, visualize=visualize) if augment or visualize else self.model(im)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/tasks.py", line 45, in forward
+    return self.predict(x, *args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/tasks.py", line 62, in predict
+    return self._predict_once(x, profile, visualize)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/tasks.py", line 82, in _predict_once
+    x = m(x)  # run
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/modules/block.py", line 182, in forward
+    return self.cv2(torch.cat(y, 1))
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/ultralytics/nn/modules/conv.py", line 42, in forward_fuse
+    return self.act(self.conv(x))
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 459, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+KeyboardInterrupt
+2023-07-13 13:01:15,538 - __main__ - INFO - Program Terminated Gracefully
