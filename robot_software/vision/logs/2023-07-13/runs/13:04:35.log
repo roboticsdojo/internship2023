@@ -1,0 +1,62 @@
+2023-07-13 13:04:35,768 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 13:04:35,779 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 13:04:35,782 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 13:04:35,783 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 13:04:35,783 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 13:04:35,783 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 13:04:38,788 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:39,038 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:39,289 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:39,541 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:39,792 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:40,043 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:40,294 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:40,545 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:40,796 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:41,047 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:41,298 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:41,550 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:41,801 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:42,052 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:42,303 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:42,554 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:42,806 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:43,057 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:43,308 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:43,559 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:43,810 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:44,061 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:44,312 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:44,563 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:44,814 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:45,065 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:45,317 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:45,568 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:45,819 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:46,070 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:46,321 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:46,572 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:46,824 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:47,075 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:47,326 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:47,577 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:47,828 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:48,080 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:48,331 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:48,582 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:48,833 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:49,084 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:49,335 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:49,586 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:49,838 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:50,089 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:50,340 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:50,591 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:50,842 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:51,093 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:04:51,205 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 275, in <module>
+    time.sleep(0.25)
+KeyboardInterrupt
+2023-07-13 13:04:51,209 - __main__ - INFO - Program Terminated Gracefully

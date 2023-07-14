@@ -1,0 +1,74 @@
+2023-07-13 22:39:21,675 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 22:39:21,687 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 22:39:21,691 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 22:39:21,692 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 22:39:21,692 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 22:39:21,692 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 22:39:26,700 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 22:39:26,901 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:27,102 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:27,303 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:27,504 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:27,706 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:27,907 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:28,108 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:28,309 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:28,510 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:28,711 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:28,912 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:29,113 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:29,314 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:29,515 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:29,716 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:29,918 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:30,119 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:30,320 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:30,521 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:30,722 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:30,923 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:31,124 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:31,325 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:31,526 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:31,727 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:31,929 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:32,130 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:32,331 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:32,532 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:32,733 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:32,934 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:33,135 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:33,336 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:33,537 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:33,738 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:33,939 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:34,140 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:34,341 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:34,542 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:34,743 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:34,944 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:35,145 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:35,346 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:35,548 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:35,749 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:35,950 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:36,151 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:39:36,352 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 22:39:36,353 - __main__ - INFO - Pick event
+2023-07-13 22:39:36,353 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 22:39:39,516 - __main__ - DEBUG - Inference Result: [{'x1': 343.82696533203125, 'y1': 315.1025390625, 'x2': 430.045166015625, 'y2': 406.7298583984375}]
+2023-07-13 22:39:39,517 - __main__ - DEBUG - Centroids: [(386, 360)]
+2023-07-13 22:39:39,517 - __main__ - DEBUG - Object widths: [87]
+2023-07-13 22:39:39,517 - __main__ - INFO - Arm Communication Initiated...
+2023-07-13 22:39:39,518 - __main__ - DEBUG - Pick Command
+2023-07-13 22:39:39,518 - __main__ - DEBUG - Sending formatted_msg: 0|-20|830.0|60
+
+2023-07-13 22:39:40,458 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 319, in <module>
+    mobile_platform_event = arm_comms(
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 233, in arm_comms
+    arm_msg = ser.readline().decode('utf-8').rstrip()
+  File "/home/lenny/dojo/internship2023/robot_software/venv/lib/python3.10/site-packages/serial/serialposix.py", line 565, in read
+    ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+KeyboardInterrupt
+2023-07-13 22:39:40,491 - __main__ - INFO - Program Terminated Gracefully
