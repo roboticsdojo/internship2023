@@ -23,7 +23,6 @@ class MobilePlatform {
     void configurePins();
     void configurePWMFrequency();
 
-
   public:
     void rotateMotor(int rightMotorSpeed, int leftMotorSpeed);
     void fastRotateMotor(int rightMotorSpeed, int leftMotorSpeed);
