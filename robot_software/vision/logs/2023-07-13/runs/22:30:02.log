@@ -1,0 +1,55 @@
+2023-07-13 22:30:02,735 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 22:30:02,772 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 22:30:02,777 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 22:30:02,778 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 22:30:02,778 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 22:30:02,779 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 22:30:05,783 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 22:30:05,984 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:06,185 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:06,386 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:06,587 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:06,788 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:06,989 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:07,191 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:07,392 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:07,593 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:07,794 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:07,995 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:08,196 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:08,397 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:08,598 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:08,799 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:09,000 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:09,201 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:09,403 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:09,604 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:09,805 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:10,006 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:10,207 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:10,408 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:10,609 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:10,810 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:11,012 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:11,213 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:11,414 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:11,615 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:11,816 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:12,017 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:12,218 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:12,419 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:12,620 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:12,822 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:13,023 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:13,224 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:13,425 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:13,626 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:13,827 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:14,028 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:14,229 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:30:14,331 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 284, in <module>
+    time.sleep(0.2)
+KeyboardInterrupt
+2023-07-13 22:30:14,336 - __main__ - INFO - Program Terminated Gracefully

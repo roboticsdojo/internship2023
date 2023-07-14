@@ -1,0 +1,81 @@
+2023-07-13 12:55:37,705 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 12:55:37,717 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 12:55:37,721 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 12:55:37,722 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 12:55:37,722 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 12:55:37,723 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 12:55:40,726 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:40,977 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:41,228 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:41,479 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:41,730 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:41,981 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:42,231 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:42,482 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:42,733 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:42,984 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:43,235 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:43,486 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:43,737 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:43,988 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:44,239 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:44,490 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:44,740 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:44,991 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:45,242 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:45,493 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:45,744 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:45,995 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:46,246 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:46,497 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:46,748 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:46,999 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:47,250 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:47,501 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:47,751 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:48,002 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:48,253 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:48,504 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:48,755 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:49,006 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:49,257 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:49,508 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:49,759 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:50,010 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:50,261 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:50,512 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:50,763 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:51,014 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:51,265 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:51,516 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:51,767 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:52,018 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:52,268 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:52,519 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:52,770 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:53,021 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:53,272 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:53,523 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:53,774 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:54,024 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:54,275 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:54,527 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:54,778 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:55,029 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:55,280 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:55,531 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:55,782 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:56,033 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:56,284 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:56,535 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:56,786 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:57,036 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:57,288 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:57,539 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:57,790 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:55:57,919 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 260, in <module>
+    time.sleep(0.25)
+KeyboardInterrupt
+2023-07-13 12:55:57,923 - __main__ - INFO - Program Terminated Gracefully

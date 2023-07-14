@@ -1,0 +1,141 @@
+2023-07-13 22:31:46,495 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 22:31:46,511 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 22:31:46,515 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 22:31:46,515 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 22:31:46,516 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 22:31:46,516 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 22:31:49,520 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 22:31:49,721 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:49,922 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:50,123 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:50,324 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:50,525 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:50,727 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:50,928 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:51,129 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:51,330 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:51,531 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:51,732 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:51,933 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:52,134 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:52,335 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:52,536 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:52,737 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:52,938 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:53,139 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:53,340 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:53,541 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:53,742 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:53,944 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:54,145 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:54,346 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:54,547 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:54,748 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:54,949 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:55,150 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:55,351 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:55,552 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:55,753 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:55,954 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:56,155 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:56,356 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:56,557 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:56,759 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:56,960 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:57,161 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:57,362 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:57,563 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:57,764 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:57,965 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:58,166 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:58,368 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:58,569 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:58,769 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:58,971 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:31:59,172 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 22:31:59,172 - __main__ - INFO - Pick event
+2023-07-13 22:31:59,173 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 22:32:02,419 - __main__ - DEBUG - Inference Result: []
+2023-07-13 22:32:02,420 - __main__ - WARNING - No object detected! Retrying
+2023-07-13 22:32:02,420 - __main__ - WARNING - No object detected! PANIC MODE!!!
+2023-07-13 22:32:02,421 - __main__ - INFO - Mobile Platform Go
+2023-07-13 22:32:04,423 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:04,424 - __main__ - INFO - EVENT CYCLE COMPLETE
+2023-07-13 22:32:04,624 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:04,826 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:05,027 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:05,228 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:05,429 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:05,630 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:05,831 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:06,032 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:06,234 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:06,435 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:06,636 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:06,837 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:07,038 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:07,239 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:07,440 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:07,641 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:07,842 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:08,043 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:08,244 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:08,445 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:08,646 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:08,848 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:09,049 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:09,250 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:09,451 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:09,652 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:09,853 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:10,055 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:10,256 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:10,457 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:10,658 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:10,859 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:11,060 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:11,261 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:11,463 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:11,664 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:11,865 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:12,066 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:12,267 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:12,468 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:12,669 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:12,870 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:13,071 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:13,272 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:13,473 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:13,674 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:13,876 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:14,077 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:14,278 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:14,479 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:14,680 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:14,881 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:15,083 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:15,284 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:15,485 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:15,686 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:15,887 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:16,088 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:16,289 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:16,490 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:16,691 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:16,892 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:17,093 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:17,294 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:17,495 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:17,697 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:17,898 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:18,099 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:18,300 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:18,501 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:18,702 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:18,903 - __main__ - DEBUG - Pick event: 0 Place event: 0
+2023-07-13 22:32:18,987 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 284, in <module>
+    time.sleep(0.2)
+KeyboardInterrupt
+2023-07-13 22:32:19,005 - __main__ - INFO - Program Terminated Gracefully

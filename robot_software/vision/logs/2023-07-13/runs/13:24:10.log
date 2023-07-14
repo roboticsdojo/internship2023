@@ -1,0 +1,22 @@
+2023-07-13 13:24:10,540 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 13:24:10,551 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 13:24:10,555 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 13:24:10,556 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 13:24:10,556 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 13:24:10,557 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 13:24:13,560 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:14,562 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:15,564 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:16,566 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:17,568 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:18,569 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:19,571 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:20,573 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:21,575 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:22,577 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:23,579 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:24,581 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:25,583 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:26,585 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:27,587 - __main__ - DEBUG - Noise from power on!
+2023-07-13 13:24:28,588 - __main__ - DEBUG - Noise from power on!

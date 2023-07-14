@@ -1,0 +1,33 @@
+2023-07-13 22:56:45,736 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 22:56:45,747 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 22:56:45,750 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 22:56:45,751 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 22:56:45,751 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 22:56:45,751 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 22:56:50,758 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:51,010 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:51,261 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:51,512 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:51,763 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:52,014 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:52,265 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:52,517 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:52,768 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:53,019 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:53,270 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:53,521 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:53,773 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:54,024 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:54,274 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:54,525 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:54,777 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:55,028 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:55,279 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:55,530 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:55,781 - __main__ - DEBUG - Noise from power on!
+2023-07-13 22:56:56,007 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 284, in <module>
+    time.sleep(0.25)
+KeyboardInterrupt
+2023-07-13 22:56:56,012 - __main__ - INFO - Program Terminated Gracefully

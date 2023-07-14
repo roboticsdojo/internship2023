@@ -1,0 +1,29 @@
+2023-07-13 12:48:34,756 - __main__ - INFO - Logger Initialized Successfully
+2023-07-13 12:48:34,791 - __main__ - INFO - Camera Initialized Successfully
+2023-07-13 12:48:34,795 - __main__ - INFO - Serial Initialized Successfully
+2023-07-13 12:48:34,795 - __main__ - INFO - GPIO Initialized Successfully
+2023-07-13 12:48:34,797 - __main__ - INFO - Raspberry Pi Ready
+2023-07-13 12:48:34,797 - __main__ - INFO - Intializing Go Command to Mobile Platform
+2023-07-13 12:48:37,801 - __main__ - DEBUG - Noise from power on!
+2023-07-13 12:48:37,802 - __main__ - DEBUG - *** Starting Cycle ^_^
+2023-07-13 12:48:38,003 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 12:48:38,003 - __main__ - INFO - Pick event
+2023-07-13 12:48:38,004 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 12:48:42,731 - __main__ - DEBUG - Inference Result: []
+2023-07-13 12:48:42,732 - __main__ - WARNING - No object detected! Retrying
+2023-07-13 12:48:42,732 - __main__ - WARNING - No object detected! PANIC MODE!!!
+2023-07-13 12:48:42,732 - __main__ - INFO - Mobile Platform Go
+2023-07-13 12:48:44,734 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 12:48:44,935 - __main__ - DEBUG - Pick event: 1 Place event: 0
+2023-07-13 12:48:44,936 - __main__ - INFO - Pick event
+2023-07-13 12:48:44,942 - __main__ - INFO - Inferring on snapshot...
+2023-07-13 12:48:46,368 - __main__ - DEBUG - Inference Result: []
+2023-07-13 12:48:46,369 - __main__ - WARNING - No object detected! Retrying
+2023-07-13 12:48:46,369 - __main__ - WARNING - No object detected! PANIC MODE!!!
+2023-07-13 12:48:46,369 - __main__ - INFO - Mobile Platform Go
+2023-07-13 12:48:46,945 - __main__ - ERROR - Keyboard Interrupt
+Traceback (most recent call last):
+  File "/home/lenny/dojo/internship2023/robot_software/run.py", line 323, in <module>
+    time.sleep(2)
+KeyboardInterrupt
+2023-07-13 12:48:46,971 - __main__ - INFO - Program Terminated Gracefully
